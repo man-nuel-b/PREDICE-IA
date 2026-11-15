@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict');
 const test=require('node:test');
-const m=require('./csv-import.js');
+const m=require('../web/csv-import.js');
 const fields='code;sku;name;category;location;unit;quantity;unit_cost;unit_price;expires_on;manual_daily_sales;shelf_life_days';
 test('Excel Chile semicolon + quoted product + decimal comma',()=>{
  const src='\ufeff'+fields+'\r\nL01;MAN01;"Manzanas; rojas";Frutas;Temuco;kg;3,5;1.234,50;2.999,90;15/11/2026;0,5;7\r\n';
