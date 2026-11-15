@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101e2b"><meta name="robots" content="noindex,nofollow">
+  <title>Predice-IA | Motor de decisiones preventivas</title>
+  
+<style>:root{--ink:#12283b;--muted:#738392;--navy:#0d1f2f;--teal:#008f82;--light:#f4f7fa;--line:#e1e8ed;--paper:#fff;--shadow:0 10px 40px #1b344010;--amber:#a66c15}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--light);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px}a{color:inherit}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.6;cursor:wait}.skip{position:absolute;top:-80px;left:20px;background:#fff;padding:12px;z-index:5}.skip:focus{top:20px}.layout{display:flex;min-height:100vh}.sidebar{width:244px;flex-shrink:0;background:var(--navy);color:#d3dfe4;padding:29px 15px 25px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column}.identity{display:flex;gap:11px;align-items:center;padding:0 10px 32px;border-bottom:1px solid #284054}.identity strong{display:block;font-size:18px;letter-spacing:-.6px;color:#fff}.identity small{display:block;font-size:9px;letter-spacing:.1em;color:#8eb4bd;margin-top:3px}.mark{height:41px;width:41px;display:grid;place-items:center;background:#04786f;color:#fff;border-radius:11px;font-weight:800;font-size:23px}.mark span{color:#dcb781}.side-title{font-size:9px;letter-spacing:.16em;color:#6f98ab;font-weight:800;margin:35px 12px 15px}.nav{display:grid;gap:7px}.nav a{text-decoration:none;font-size:12px;border-radius:8px;color:#aec4d1;padding:12px 14px}.nav a:hover,.nav a:focus-visible{background:#254155;color:#fff}.sidebar-bottom{margin-top:auto;padding:18px 11px;border-top:1px solid #284054;font-size:11px;font-weight:700}.sidebar-bottom p{font-weight:400;font-size:10px;line-height:1.6;color:#91aab8}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#30d7ab;margin-right:7px}.main{min-width:0;flex:1;padding:23px clamp(18px,4vw,65px) 35px;max-width:1800px;margin:0 auto}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;gap:10px}.overline,.eyebrow{color:#00897f;font-size:10px;letter-spacing:.15em;font-weight:800}.environment{font-size:10px;background:#eaf5f2;border:1px solid #d2eee7;color:#247b70;border-radius:20px;padding:7px 10px;font-weight:700}.hero{background:linear-gradient(114deg,#142c3e,#0a2733 67%,#074f51);color:#fff;border-radius:17px;min-height:260px;padding:33px 37px;display:flex;align-items:center;justify-content:space-between;gap:30px;overflow:hidden}.hero h1{font-size:clamp(32px,3.9vw,56px);letter-spacing:-.05em;line-height:1.07;margin:10px 0}.hero h1 em{font-style:normal;color:#69e4c8}.hero p{font-size:13px;line-height:1.75;color:#c5d5dc;max-width:620px}.hero .eyebrow{color:#75d9c6}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}.btn{border:1px solid #d6e2e7;border-radius:9px;padding:11px 15px;background:#fff;color:#294255;font-weight:700;font-size:12px}.btn.primary{color:white;background:#078f82;border-color:#078f82}.btn.primary:hover{background:#02776d}.btn.outline{background:transparent}.btn.light{background:#f2f7f8;color:#163245;border-color:#f2f7f8;text-decoration:none}.hero-actions a{text-decoration:none}.hero-emblem{width:196px;height:196px;border:1px solid #5d9c9b;border-radius:50%;flex-shrink:0;display:grid;place-content:center;text-align:center;position:relative;box-shadow:0 0 0 20px #ffffff0a,0 0 0 38px #ffffff06}.hero-emblem span{position:absolute;left:31px;top:21px;font-size:52px;color:#65e5c2}.hero-emblem b{font-size:50px;letter-spacing:-.08em}.hero-emblem small{font-size:8px;letter-spacing:.18em;color:#8ed9cb}.alert{background:#eaf7f3;border:1px solid #cceae1;color:#1f6e64;border-radius:10px;padding:12px 16px;margin:20px 0;font-size:12px;line-height:1.6}.alert.error{background:#fff3f0;border-color:#f3d4ce;color:#9b3630}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:20px 0 27px}.metric,.panel{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}.metric{padding:19px 20px}.metric .name{font-size:11px;color:var(--muted);font-weight:700}.metric .value{font-size:clamp(22px,2.5vw,31px);font-weight:800;letter-spacing:-1px;margin:8px 0}.metric .note{color:#8b99a4;font-size:10px;line-height:1.5}.two-panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.panel{min-width:0;padding:22px}.section-header{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:17px}.section-header h2{font-size:21px;letter-spacing:-.5px;margin:8px 0 4px}.section-header p,.muted{font-size:12px;color:var(--muted);line-height:1.6}.panel h3{font-size:15px;margin:4px 0 20px}.section-space{margin-top:40px;scroll-margin-top:24px}.table-container{overflow-x:auto;padding:0}table{width:100%;border-collapse:collapse;text-align:left;white-space:nowrap}th{padding:17px 19px;background:#f8fafb;color:#82909c;font-size:10px;text-transform:uppercase;letter-spacing:.055em}td{padding:16px 19px;border-top:1px solid var(--line);font-size:12px;vertical-align:middle}td:first-child{white-space:normal;min-width:200px}td strong{display:block;font-size:12px}td small{display:block;color:var(--muted);margin-top:4px}.pill{display:inline-block;font-size:10px;padding:5px 9px;border-radius:20px;background:#e9f5ef;color:#247b62;font-weight:700}.pill.low{background:#fdf3e1;color:#906114}.pill.urgent{background:#fff0ec;color:#a74336}.pill.suggest{background:#e5f6f1;color:#11766b}.pill.pending{background:#fff4dc;color:#895f17}.table-action{border:1px solid #b2d9d3;background:#f0faf7;color:#06796f;border-radius:8px;padding:9px 10px;font-weight:700;font-size:11px}.table-action:hover{background:#d9f3ea}.bars{display:grid;gap:15px}.bar-item{display:grid;gap:7px}.bar-label{display:flex;justify-content:space-between;gap:10px;font-size:11px}.bar-track{height:10px;background:#ebf2f2;border-radius:10px;overflow:hidden}.bar-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,#0b998d,#66d5a8)}.featured h3{font-size:22px;margin:7px 0 15px}.featured .big{font-size:37px;font-weight:800;color:#0b847a}.featured p{font-size:12px;line-height:1.8;color:#60727f}.featured .facts{display:flex;gap:14px;flex-wrap:wrap;margin:13px 0}.featured .facts div{padding:11px;background:#f5f9f8;border-radius:8px;font-size:11px}.featured .facts b{display:block;font-size:15px;margin-top:4px}.scenario-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.scenario{border:1px solid var(--line);background:#fbfdfd;border-radius:11px;padding:17px}.scenario b{display:block;font-size:24px;margin:8px 0}.scenario p{font-size:11px;line-height:1.7;color:var(--muted)}.scenario small{display:block;margin-top:7px;color:var(--muted)}.scenario.positive{border-color:#a5d9cd;background:#f1faf7}.form{display:flex;flex-direction:column;gap:13px}.form label{display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:700;color:#536475}.form input,.form select{border:1px solid #dce6ed;border-radius:8px;padding:11px 12px;width:100%;background:white;color:var(--ink)}.form input:focus,.form select:focus,.btn:focus-visible,.nav a:focus-visible{outline:2px solid #087c72;outline-offset:2px}.small{font-size:11px}.quality-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.quality-grid>div{background:#f5f9fa;padding:14px;border-radius:8px}.quality-grid strong{font-size:24px;display:block}.quality-note{font-size:11px;color:var(--muted);line-height:1.8;margin-top:12px}footer{margin:48px 0 0;padding:25px 0 0;border-top:1px solid var(--line);font-size:11px;color:#8f9eaa;line-height:1.8}code{background:#edf3f6;padding:2px 4px;border-radius:3px} @media(max-width:1150px){.sidebar{width:210px}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-emblem{width:155px;height:155px}.scenario-cards{grid-template-columns:1fr}}@media(max-width:800px){.layout{display:block}.sidebar{position:relative;width:100%;height:auto;padding:13px 16px}.identity{border:0;padding:0}.side-title,.sidebar-bottom{display:none}.nav{display:flex;gap:6px;overflow-x:auto;padding-top:13px}.nav a{white-space:nowrap;padding:10px 13px}.main{padding:18px 16px}.two-panels{grid-template-columns:1fr}.hero{padding:25px}.hero-emblem{display:none}.quality-grid{grid-template-columns:1fr 1fr}}@media(max-width:450px){.metrics{grid-template-columns:1fr 1fr;gap:9px}.metric{padding:14px}.metric .value{font-size:21px}.environment{display:none}.hero h1{font-size:35px}.panel{padding:17px}.table-container{padding:0}.quality-grid{grid-template-columns:1fr}}
+
+/* Visual preview of the merged dark UI theme; illustrative copy of the current appearance. */
+:root{color-scheme:dark;--ink:#f1f5fd;--muted:#adbbd0;--navy:#090d16;--teal:#a5a7ff;--light:#0f172a;--line:#334155;--paper:#1b263a;--shadow:0 10px 30px rgba(1,7,21,.2);--amber:#f8c36c}
+body{background:radial-gradient(ellipse at 95% 5%,#29265b33,transparent 50%),#101827;color:var(--ink);line-height:1.5}
+.sidebar{background:linear-gradient(175deg,#0c1220,#090e19 80%);color:#e1e9fb;border-right:1px solid #263449;box-shadow:1px 0 0 #2b3951;width:252px;padding:31px 18px 24px}
+.identity{border-bottom:1px solid #293349;padding-bottom:26px;gap:13px}
+.identity strong{color:white;font-size:19px}.identity small{color:#a6a6de;font-size:10px;letter-spacing:.06em}
+.mark{height:44px;width:44px;border-radius:12px;background:linear-gradient(145deg,#7778f9,#4f46e5);box-shadow:0 9px 22px #4338ca44;color:white}
+.mark span{color:#e1e5ff}.side-title{color:#a3a4db;margin-top:32px;font-size:10px}
+.nav{gap:6px}.nav a{min-height:46px;display:flex;align-items:center;color:#b2bed2;font-size:12px;font-weight:650;border:1px solid transparent;line-height:1.35}
+.nav a:hover,.nav a:focus-visible,.nav a[aria-current="location"]{background:#6366f12a;color:#f3f2ff;border-color:#696ec15c}
+.sidebar-bottom{color:#d5deee;border-top-color:#2b344a;font-size:12px}.sidebar-bottom p{color:#9eafc5}
+.dot{background:#34d399}.main{max-width:1570px;padding:29px clamp(20px,3.5vw,58px) 45px}
+.topbar{padding-bottom:16px;border-bottom:1px solid #ffffff20;margin-bottom:23px}
+.overline,.eyebrow{color:#b3b4ff;font-size:11px}.environment{background:#23254b;color:#d5d6ff;border:1px solid #44468b;border-radius:24px;white-space:nowrap}
+.hero{min-height:235px;background:radial-gradient(ellipse at 95% 20%,#8b5cf62e,transparent 54%),linear-gradient(115deg,#222c4a,#131f36 72%);border:1px solid #536185;border-radius:18px;padding:29px 38px;box-shadow:0 20px 65px #02061744}
+.hero h1{color:#fff;font-size:clamp(34px,3.5vw,52px)}.hero h1 em{color:#c5c5ff}.hero p{color:#c3cee1;font-size:13px;line-height:1.8}.hero .eyebrow{color:#afb1ff}
+.hero-emblem{border-color:#7073c6;width:178px;height:178px;box-shadow:0 0 0 20px #7779e70e,0 0 0 38px #7779e707}.hero-emblem b{font-size:44px}.hero-emblem span{color:#a1a5ff}.hero-emblem small{color:#bec0ff}
+.btn{background:#303c53;border-color:#525d78;color:#e9eeff;min-height:44px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center}
+.btn.primary{background:linear-gradient(125deg,#6669ed,#5851d6);border-color:#797bf9;color:white}.btn.light{color:#252d59;background:#eef0ff;border-color:#eef0ff}.btn.outline{background:transparent;border-color:#646796;color:#d6d9ff}
+.alert{background:#1e3346;border:1px solid #335e65;border-left:3px solid #67c9b6;color:#d7f4e9;border-radius:10px;line-height:1.6}.alert.error{background:#442634;border-color:#7c394d;color:#ffd1db}
+.metrics{gap:15px}.metric,.panel{background:#1b263a;border:1px solid #3a4963;border-radius:16px;box-shadow:0 10px 26px #01071522}
+.metric{padding:21px 20px 19px;min-height:154px;border-top:3px solid #8b96ae;display:flex;flex-direction:column}
+.metric:nth-child(2){border-top-color:#fcd34d}.metric:nth-child(3){border-top-color:#fda4af}.metric:nth-child(4){border-top-color:#a5b4fc}
+.metric .name{color:#c3cee1;font-size:12px;min-height:32px}.metric .value{color:#f8faff;font-variant-numeric:tabular-nums;font-size:clamp(23px,2.25vw,32px);overflow-wrap:anywhere}.metric .note{color:#a9b8cc;margin-top:auto;font-size:11px}
+.panel{padding:25px}.section-header h2{color:#f5f7ff;font-size:clamp(19px,1.8vw,24px)}.section-header p,.muted{color:#adbbd0}
+.bars{gap:19px}.bar-label{color:#e6eefb;font-size:12px}.bar-label b{color:white}.bar-track{background:#101a2b}.bar-fill{background:linear-gradient(90deg,#8589fc,#c9bbff)}
+.featured h3{color:#f6f7fd}.featured p{color:#b8c7d8}.featured .big{color:#bdbeff}.featured .facts div{background:#131f30;color:#c6d5e7;border:1px solid #33405a}.featured .facts b{color:#f8faff}
+.table-container{padding:0;overflow-x:auto;scrollbar-width:thin}.table-container table{min-width:820px}th{background:#172338;color:#d1daea;border-bottom:1px solid #334155;font-size:11px;padding:16px 17px}
+td{border-top-color:#37445a;color:#f0f3ff;padding:15px 17px}td small{color:#adbcd1}td:nth-child(4) strong{color:#c8cbff}tbody tr:hover{background:#ffffff07}
+.table-action{background:#303663;border:1px solid #6066b5;color:#e0e2ff;min-height:42px;padding:10px 14px;border-radius:9px}
+.pill{background:#28443f;color:#b8f5d6}.pill.low{background:#4e3a27;color:#ffdc98}.pill.urgent{background:#522d3c;color:#ffb8c6}.pill.suggest{background:#2e3c68;color:#cbceff}.pill.pending{background:#4d402b;color:#ffe1a1}
+.scenario{background:#172236;border-color:#3e4a62;padding:21px}.scenario b{color:#f4f5ff}.scenario p,.scenario small{color:#b5c2d7}.scenario.positive{border:2px solid #8b8eff;background:#272c50}
+.form label{color:#c9d5e8}.form input,.form select{background:#101c2f;color:white;border-color:#43506a;min-height:46px;border-radius:10px}
+.quality-grid>div{background:#152438;color:#cbd5e9;border:1px solid #33445e}.quality-grid strong{color:white}.quality-note{color:#b0c1d4}footer{border-color:#334155;color:#aebed2}code{background:#142138;color:#cfd4ff}
+.preview-notice{background:#393057;border:1px solid #8479c6;border-radius:11px;padding:13px 16px;margin-bottom:12px;color:#f0eaff;font-size:12px}
+:where(a,button,input,select):focus-visible{outline:3px solid #c7d2fe;outline-offset:3px}
+@media(max-width:1150px){.sidebar{width:224px}.metric{padding:19px}.hero{padding:25px}.hero-emblem{display:none}}
+@media(max-width:800px){.sidebar{position:sticky;top:0;z-index:20;width:100%;height:auto;padding:11px 16px 10px;border-right:0;border-bottom:1px solid #3a4564}.identity{padding:0;border:0}.nav{display:flex;overflow-x:auto;gap:5px;padding:9px 0 2px}.nav a{white-space:nowrap;min-height:37px;padding:9px 12px;flex-shrink:0}.main{padding:19px 16px 36px}.two-panels{grid-template-columns:1fr}.hero{padding:24px}.hero-emblem{display:none}.table-container:before{content:"Desliza la tabla horizontalmente para ver todas las columnas →";display:block;padding:10px 14px;border-bottom:1px solid #35455e;font-size:11px;color:#c6d2e7;background:#27344b}.section-space,#panel{scroll-margin-top:115px}}
+@media(max-width:520px){.environment{display:inline-flex;font-size:9px;white-space:normal}.hero h1{font-size:34px}.hero-actions{display:grid;grid-template-columns:1fr}.hero-actions .btn{width:100%}.metrics{grid-template-columns:1fr;gap:11px}.metric{min-height:0;padding:16px 18px}.metric .name{min-height:0}.metric .value{font-size:27px}.panel{padding:19px}.table-container{padding:0}.scenario-cards{grid-template-columns:1fr}.quality-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Analítica avanzada: módulo visual con semántica responsive y gráficos accesibles. */
+.analytics-section { scroll-margin-top: 24px; }
+.analytics-heading { margin-bottom: 16px; }
+.analytics-heading h2 { font-size: clamp(24px,2.4vw,31px); }
+.analytics-toolbar {
+  display: flex; flex-wrap: wrap; align-items: end;
+  gap: 14px; padding: 16px 20px; margin-bottom: 16px;
+}
+.analytics-toolbar label { display: grid; gap: 7px; font-size: 12px; color: #cbd5e1; font-weight: 700; min-width: 185px; }
+.analytics-toolbar select { width: 100%; background: #111d31; color: #f8fbff; border: 1px solid #52627c; border-radius: 9px; height: 45px; padding: 9px 12px; }
+.analytics-toolbar .btn { min-height: 45px; }
+.analytics-scope { color: #b9c8e0; font-size: 11px; flex: 1 1 100%; }
+.analytics-error { color: #fda4af; font-size: 12px; margin: 4px 0; }
+.analytics-error:empty { display: none; }
+.analytics-kpis { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin: 16px 0 19px; }
+.analytics-kpi { background: #1c2a42; border: 1px solid #41516c; border-radius: 13px; padding: 19px; display: flex; flex-direction: column; gap: 9px; min-width: 0; border-left: 3px solid #8589fc; }
+.analytics-kpi:nth-child(1) { border-left-color: #fda4af; }
+.analytics-kpi:nth-child(2) { border-left-color: #fcd34d; }
+.analytics-kpi:nth-child(3) { border-left-color: #7dd3fc; }
+.analytics-kpi>span { color: #c8d6eb; font-size: 12px; font-weight: 700; }
+.analytics-kpi strong { color: #fafbff; font-size: clamp(21px,2vw,27px); line-height: 1.2; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.analytics-kpi small { color: #aebed5; font-size: 11px; line-height: 1.5; }
+.analytics-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 17px; }
+.analytics-panel { min-width: 0; }
+.analytics-panel h3 { font-size: 18px; margin: 9px 0 19px; }
+.analytics-chart { width: 100%; height: auto; max-height: 195px; display: block; }
+.analytics-footnote { color: #afc1d8; font-size: 11px; line-height: 1.7; margin: 12px 0 0; }
+.analytics-category { margin: 0 0 17px; }
+.analytics-category-header { display: flex; gap: 12px; align-items: start; justify-content: space-between; font-size: 12px; margin-bottom: 9px; }
+.analytics-category-header strong { color: #edf2ff; font-size: 12px; }
+.analytics-category-header span { color: #d7d9ff; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.analytics-track { background: #101d31; height: 11px; border-radius: 8px; overflow: hidden; }
+.analytics-track>div { height: 100%; border-radius: 8px; background: linear-gradient(90deg,#787cf4,#b9bafe); }
+.analytics-category small { display: block; margin-top: 7px; font-size: 10px; color: #a5bad4; line-height: 1.5; }
+.analytics-pareto-row { display: grid; grid-template-columns: minmax(100px,1fr) minmax(80px,1fr) minmax(108px,auto); gap: 12px; padding: 11px 0; border-bottom: 1px solid #33425b; align-items: center; }
+.analytics-pareto-row>div:first-child { min-width: 0; }
+.analytics-pareto-row strong { font-size: 12px; display: block; overflow-wrap: anywhere; }
+.analytics-pareto-row small { display: block; color: #a9bad0; font-size: 10px; margin-top: 3px; }
+.analytics-pareto-bar { height: 9px; border-radius: 6px; background: #0b192b; overflow: hidden; }
+.analytics-pareto-bar i { display: block; background: linear-gradient(90deg,#eab581,#f7d9af); height: 100%; border-radius: 6px; }
+.analytics-pareto-values { font-size: 12px; text-align: right; color: #f1f4ff; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.analytics-table-panel { margin-top: 18px; }
+.analytics-table-panel .section-header { margin-bottom: 14px; }
+.analytics-table-panel h3 { font-size: 19px; margin: 6px 0 3px; }
+.analytics-table-panel .table-container { border: 1px solid #37445a; border-radius: 10px; }
+.analytics-table-panel .table-container table { min-width: 740px; }
+.analytics-table-panel th { background: #18243a; }
+.analytics-notes { margin-top: 17px; padding: 20px 24px; }
+.analytics-notes h3 { margin: 0 0 8px; font-size: 16px; }
+.analytics-notes ul { padding-left: 21px; margin: 0; color: #bfcee1; font-size: 12px; line-height: 1.85; }
+.analytics-empty { font-size: 12px; color: #b9c7d9; padding: 18px 0; }
+@media(max-width:1220px){ .analytics-kpis { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:900px){ .analytics-grid { grid-template-columns:1fr; } .analytics-toolbar label { flex:1 1 180px; } }
+@media(max-width:800px){ .analytics-section { scroll-margin-top: 120px; } .analytics-table-panel .table-container:before { content: "Desliza para consultar todas las columnas →"; display:block; padding:9px 14px; font-size:11px; color:#bacbe2; border-bottom:1px solid #334155; } }
+@media(max-width:530px){ .analytics-kpis { grid-template-columns:1fr; gap:10px; } .analytics-kpi { padding:14px 17px; } .analytics-kpi strong { font-size:25px; } .analytics-toolbar { flex-direction:column; align-items:stretch; } .analytics-toolbar label { width:100%; min-width:0; } .analytics-toolbar .btn { width:100%; } .analytics-pareto-row { grid-template-columns: 1fr minmax(100px,auto); gap:8px; } .analytics-pareto-bar { grid-row:2; grid-column:1/-1; } .analytics-pareto-values { grid-column:2; grid-row:1; } .analytics-category-header { flex-wrap:wrap; } }
+
+</style></head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<div class="layout">
+  <aside class="sidebar" aria-label="Menú de Predice-IA">
+    <div class="identity"><div class="mark">P<span>·</span></div><div><strong>Predice-IA</strong><small>MERMA360 · Inteligencia BI</small></div></div>
+    <div class="side-title">MOTOR PREVENTIVO</div>
+    <nav class="nav">
+      <a href="#panel">Resumen general</a><a href="#advanced">Analítica avanzada</a><a href="#recomendaciones">Compras inteligentes</a><a href="#riesgos">Riesgo de vencimientos</a><a href="#escenarios">Escenarios financieros</a><a href="#datos">Importar datos</a>
+    </nav>
+    <div class="sidebar-bottom"><span class="dot" id="motor-status-dot"></span><span id="motor-status">Vista previa de demostración</span> <p>Predicción explicable y revisión humana. Sin conexión a ERP.</p></div>
+  </aside>
+  <main id="main" class="main">
+    <div class="topbar"><span class="overline">INTELIGENCIA PARA DECIDIR ANTES DE PERDER</span><span class="environment">VISTA PREVIA ANALÍTICA · DATOS FICTICIOS</span></div>
+    <section class="hero" id="panel"><div><p class="eyebrow">CENTRO DE DECISIONES</p><h1>Menos pérdidas.<br><em>Mejores decisiones.</em></h1><p>Analiza tus ventas, detecta existencias en riesgo y compara alternativas antes de comprar. Los resultados se calculan con los datos disponibles.</p><div class="hero-actions"><a class="btn primary" href="#recomendaciones">Ver recomendaciones</a><a class="btn light" href="#datos">Cargar mis CSV</a></div></div><div class="hero-emblem" aria-hidden="true"><span>−</span><b>360°</b><small>DE DATOS A DECISIONES</small></div></section>
+    <div class="preview-notice"><strong>Vista previa visual.</strong> Los indicadores usan datos ficticios y no están conectados a un servidor. Para utilizar el motor real, ejecuta el MVP.</div><div id="alert" class="alert" role="status" aria-live="polite">Conectando con el motor local…</div>
+    <section class="metrics" aria-label="Resumen de indicadores" id="kpis"></section>
+    <div class="two-panels">
+      <section class="panel"><div class="section-header"><div><span class="eyebrow">VISIÓN DE RIESGO</span><h2>Prioridad por pérdida potencial</h2></div></div><div id="risk-bars" class="bars"></div></section>
+      <section class="panel"><div class="section-header"><div><span class="eyebrow">PRÓXIMA ACCIÓN</span><h2>Recomendación destacada</h2></div></div><div id="featured"></div></section>
+    </div>
+        <section id="advanced" class="section-space analytics-section" aria-labelledby="advanced-heading">
+      <div class="section-header analytics-heading">
+        <div><span class="eyebrow">BUSINESS INTELLIGENCE · ANÁLISIS DESCRIPTIVO</span>
+          <h2 id="advanced-heading">Analítica avanzada</h2>
+          <p>Analiza mermas registradas, demanda, concentración del riesgo y cobertura de datos. Las cifras se actualizan al importar información.</p>
+        </div>
+      </div>
+      <div class="analytics-toolbar panel">
+        <label>Periodo histórico
+          <select id="advanced-period" aria-label="Periodo histórico de analítica avanzada">
+            <option value="7">Últimos 7 días</option><option value="28" selected>Últimos 28 días</option><option value="56">Últimos 56 días</option>
+          </select>
+        </label>
+        <label>Local
+          <select id="advanced-location" aria-label="Filtrar analítica por local"><option value="all">Todos los locales</option></select>
+        </label>
+        <button id="advanced-export" class="btn outline" type="button">Exportar análisis CSV</button>
+        <span id="advanced-scope" class="analytics-scope" aria-live="polite">Preparando datos…</span>
+      </div>
+      <p id="advanced-error" class="analytics-error" role="status"></p>
+      <div class="analytics-kpis" id="advanced-kpis" aria-label="Indicadores de analítica avanzada"></div>
+      <div class="analytics-grid">
+        <div class="panel analytics-panel"><span class="eyebrow">HISTÓRICO DE PÉRDIDAS</span><h3>Merma registrada por semana</h3>
+          <div id="advanced-waste-trend"></div><p class="analytics-footnote">Valores reales registrados al costo. No representan una predicción.</p>
+        </div>
+        <div class="panel analytics-panel"><span class="eyebrow">ACTIVIDAD COMERCIAL</span><h3>Ventas valorizadas por semana</h3>
+          <div id="advanced-sales-trend"></div><p class="analytics-footnote">Ingresos brutos de ventas con precio disponible; faltantes se informan.</p>
+        </div>
+        <div class="panel analytics-panel"><span class="eyebrow">SEGMENTACIÓN DE CARTERA</span><h3>Exposición estimada por categoría</h3>
+          <div id="advanced-categories"></div><p class="analytics-footnote">Foto actual del inventario y riesgo, independiente del filtro de fechas.</p>
+        </div>
+        <div class="panel analytics-panel"><span class="eyebrow">PARETO DE EXPOSICIÓN</span><h3>Productos que concentran el riesgo</h3>
+          <div id="advanced-pareto"></div><p class="analytics-footnote">Porcentaje acumulado del costo expuesto estimado, no pérdidas confirmadas.</p>
+        </div>
+      </div>
+      <div class="panel analytics-table-panel"><div class="section-header"><div><span class="eyebrow">ANÁLISIS DE COMPORTAMIENTO</span><h3>Variabilidad y calidad de la demanda</h3></div></div>
+        <div class="table-container"><table><thead><tr><th>Producto · local</th><th>Demanda diaria</th><th>Variabilidad relativa</th><th>Cobertura 28 días</th><th>Confianza en datos</th></tr></thead><tbody id="advanced-demand"></tbody></table></div>
+        <p id="advanced-quality-note" class="analytics-footnote"></p>
+      </div>
+      <div class="analytics-notes panel"><h3>Lectura responsable de los resultados</h3><ul id="advanced-insights"></ul></div>
+    </section>
+
+    <section id="recomendaciones" class="section-space"><div class="section-header"><div><span class="eyebrow">MOTOR EXPLICABLE</span><h2>Compras inteligentes</h2><p>Recomendaciones sujetas a validación; nunca se ejecuta una compra automáticamente.</p></div></div><div class="panel table-container"><table><thead><tr><th>Producto · ubicación</th><th>Demanda diaria</th><th>Disponible</th><th>Comprar</th><th>Cobertura de datos</th><th>Decisión</th></tr></thead><tbody id="recommendations-body"></tbody></table></div></section>
+    <section id="riesgos" class="section-space"><div class="section-header"><div><span class="eyebrow">ANTES DEL VENCIMIENTO</span><h2>Riesgos que requieren atención</h2><p>La exposición potencial no es una pérdida contabilizada ni una probabilidad calibrada.</p></div></div><div class="panel table-container"><table><thead><tr><th>Lote / producto</th><th>Vence en</th><th>Excedente potencial</th><th>Exposición estimada</th><th>Prioridad</th></tr></thead><tbody id="risks-body"></tbody></table></div></section>
+    <section id="escenarios" class="section-space"><div class="section-header"><div><span class="eyebrow">SIMULADOR FINANCIERO</span><h2>Compara antes de actuar</h2><p>Los escenarios muestran una contribución aproximada, no utilidad contable ni ahorro garantizado.</p></div></div><div class="panel" id="scenario-panel"><p class="muted">Selecciona una recomendación para comparar escenarios.</p></div></section>
+    <section id="datos" class="section-space"><div class="section-header"><div><span class="eyebrow">SIN REEMPLAZAR TU SOFTWARE</span><h2>Datos y configuración</h2><p>Importa archivos CSV exportados desde tus registros. Cada carga reemplaza los datos del tipo seleccionado en este equipo.</p></div></div>
+      <div class="two-panels">
+        <form id="settings-form" class="panel form" autocomplete="off"><h3>Política de compras</h3>
+          <label>Plazo de entrega del proveedor (días)<input name="lead_days" type="number" min="0" max="90" step="1" value="2" required></label>
+          <label>Ciclo de revisión de compras (días)<input name="review_days" type="number" min="1" max="90" step="1" value="7" required></label>
+          <label>Nivel de servicio orientativo<select name="service"><option value="90">90 %</option><option value="95" selected>95 %</option><option value="98">98 %</option></select></label>
+          <label>Porción no recuperable del excedente vencido<select name="spoilage_factor"><option value="1">100 % (conservador)</option><option value="0.5">50 %</option><option value="0.25">25 %</option></select></label>
+          <button class="btn primary" type="submit" disabled title="El recálculo requiere el motor local">Recalcular decisiones</button>
+        </form>
+        <div class="panel form"><h3>Importar información</h3>
+          <label>Archivo de datos<select id="kind"><option value="lots">Lotes e inventario</option><option value="sales">Ventas diarias</option><option value="waste">Mermas observadas</option></select></label>
+          <label>Archivo CSV (UTF-8)<input id="csv-file" type="file" accept=".csv,text/csv" aria-describedby="import-help"></label>
+          <p class="small muted" id="import-help">Máximo 20.000 registros; formatos y columnas en el README. Revisa los datos antes de importar.</p>
+          <button class="btn primary" id="import-button" type="button" disabled title="La importación requiere el motor local">Validar e importar CSV</button>
+          <button class="btn outline" id="reset-button" type="button" disabled title="La restauración requiere el motor local">Restablecer datos de demostración</button>
+          <p class="small muted">En esta vista previa no se guardan ni importan datos.</p>
+        </div>
+      </div>
+      <div class="panel" id="quality"></div>
+    </section>
+    <footer>Predice-IA · MVP técnico · Sin ERP · Predicciones exploratorias, siempre bajo revisión humana. No usar para decisiones automáticas de inocuidad.</footer>
+  </main>
+</div>
+<script>window.__PREDICE_SNAPSHOT={"datasets":{"lots":[{"code":"DEMO-001","sku":"YOG-NAT","name":"Yogur natural 125 g","category":"Refrigerados","location":"Local Temuco","unit":"un","quantity":175,"unit_cost":620,"unit_price":990,"expires_on":"2026-11-19","manual_daily_sales":23,"shelf_life_days":10},{"code":"DEMO-002","sku":"TOM-ROJ","name":"Tomates frescos","category":"Frutas y verduras","location":"Local Temuco","unit":"kg","quantity":128,"unit_cost":850,"unit_price":1450,"expires_on":"2026-11-18","manual_daily_sales":17,"shelf_life_days":8},{"code":"DEMO-003","sku":"PAN-MAR","name":"Pan de molde","category":"Panadería","location":"Local Padre Las Casas","unit":"un","quantity":90,"unit_cost":900,"unit_price":1700,"expires_on":"2026-11-22","manual_daily_sales":8,"shelf_life_days":10},{"code":"DEMO-004","sku":"FRU-ROJ","name":"Frutillas frescas","category":"Frutas y verduras","location":"Local Padre Las Casas","unit":"kg","quantity":52,"unit_cost":1500,"unit_price":2900,"expires_on":"2026-11-17","manual_daily_sales":7,"shelf_life_days":5},{"code":"DEMO-005","sku":"CER-AV","name":"Avena envasada","category":"Abarrotes","location":"Local Temuco","unit":"un","quantity":95,"unit_cost":1500,"unit_price":2300,"expires_on":"2027-02-18","manual_daily_sales":3,"shelf_life_days":180}],"sales":[{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-10-19","quantity":19,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-10-20","quantity":19,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-10-21","quantity":21,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-10-22","quantity":23,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-10-23","quantity":28,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-10-24","quantity":30,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-10-25","quantity":26,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-10-26","quantity":25,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-10-27","quantity":22,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-10-28","quantity":20,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-10-29","quantity":19,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-10-30","quantity":23,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-10-31","quantity":25,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-11-01","quantity":24,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-11-02","quantity":26,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-11-03","quantity":27,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-11-04","quantity":26,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-11-05","quantity":24,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-11-06","quantity":24,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-11-07","quantity":22,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-11-08","quantity":19,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-11-09","quantity":20,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-11-10","quantity":23,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-11-11","quantity":25,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-11-12","quantity":27,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-11-13","quantity":30,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-11-14","quantity":28,"unit_price":990},{"sku":"YOG-NAT","location":"Local Temuco","sold_on":"2026-11-15","quantity":23,"unit_price":990},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-10-19","quantity":14,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-10-20","quantity":14,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-10-21","quantity":16,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-10-22","quantity":17,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-10-23","quantity":21,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-10-24","quantity":22,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-10-25","quantity":20,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-10-26","quantity":18,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-10-27","quantity":16,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-10-28","quantity":15,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-10-29","quantity":14,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-10-30","quantity":17,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-10-31","quantity":18,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-11-01","quantity":18,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-11-02","quantity":19,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-11-03","quantity":20,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-11-04","quantity":19,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-11-05","quantity":18,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-11-06","quantity":18,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-11-07","quantity":16,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-11-08","quantity":14,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-11-09","quantity":15,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-11-10","quantity":17,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-11-11","quantity":18,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-11-12","quantity":20,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-11-13","quantity":22,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-11-14","quantity":21,"unit_price":1450},{"sku":"TOM-ROJ","location":"Local Temuco","sold_on":"2026-11-15","quantity":17,"unit_price":1450},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-10-19","quantity":7,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-10-20","quantity":7,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-10-21","quantity":7,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-10-22","quantity":8,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-10-23","quantity":10,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-10-24","quantity":10,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-10-25","quantity":9,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-10-26","quantity":9,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-10-27","quantity":8,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-10-28","quantity":7,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-10-29","quantity":7,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-10-30","quantity":8,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-10-31","quantity":9,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-11-01","quantity":8,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-11-02","quantity":9,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-11-03","quantity":9,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-11-04","quantity":9,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-11-05","quantity":8,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-11-06","quantity":8,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-11-07","quantity":8,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-11-08","quantity":7,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-11-09","quantity":7,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-11-10","quantity":8,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-11-11","quantity":9,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-11-12","quantity":9,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-11-13","quantity":10,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-11-14","quantity":10,"unit_price":1700},{"sku":"PAN-MAR","location":"Local Padre Las Casas","sold_on":"2026-11-15","quantity":8,"unit_price":1700},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-10-19","quantity":6,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-10-20","quantity":6,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-10-21","quantity":6,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-10-22","quantity":7,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-10-23","quantity":9,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-10-24","quantity":9,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-10-25","quantity":8,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-10-26","quantity":7,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-10-27","quantity":7,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-10-28","quantity":6,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-10-29","quantity":6,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-10-30","quantity":7,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-10-31","quantity":7,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-11-01","quantity":7,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-11-02","quantity":8,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-11-03","quantity":8,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-11-04","quantity":8,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-11-05","quantity":7,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-11-06","quantity":7,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-11-07","quantity":7,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-11-08","quantity":6,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-11-09","quantity":6,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-11-10","quantity":7,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-11-11","quantity":8,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-11-12","quantity":8,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-11-13","quantity":9,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-11-14","quantity":9,"unit_price":2900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","sold_on":"2026-11-15","quantity":7,"unit_price":2900},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-10-19","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-10-20","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-10-21","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-10-22","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-10-23","quantity":4,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-10-24","quantity":4,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-10-25","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-10-26","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-10-27","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-10-28","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-10-29","quantity":2,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-10-30","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-10-31","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-11-01","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-11-02","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-11-03","quantity":4,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-11-04","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-11-05","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-11-06","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-11-07","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-11-08","quantity":2,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-11-09","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-11-10","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-11-11","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-11-12","quantity":3,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-11-13","quantity":4,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-11-14","quantity":4,"unit_price":2300},{"sku":"CER-AV","location":"Local Temuco","sold_on":"2026-11-15","quantity":3,"unit_price":2300}],"waste":[{"sku":"YOG-NAT","location":"Local Temuco","occurred_on":"2026-11-10","quantity":3,"unit_cost":620},{"sku":"TOM-ROJ","location":"Local Temuco","occurred_on":"2026-11-10","quantity":3,"unit_cost":850},{"sku":"PAN-MAR","location":"Local Padre Las Casas","occurred_on":"2026-11-10","quantity":3,"unit_cost":900},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","occurred_on":"2026-11-10","quantity":3,"unit_cost":1500},{"sku":"CER-AV","location":"Local Temuco","occurred_on":"2026-11-10","quantity":1,"unit_cost":1500}]},"analysis":{"as_of":"2026-11-15","settings":{"lead_days":2,"review_days":7,"service":"95","spoilage_factor":1.0},"kpis":{"inventory_value":518800.0,"exposure":191843.0,"observed_waste_cost":13110.0,"potential_waste_units":216.35,"sku_locations":5,"at_risk_lots":4,"recorded_sales":140,"recorded_waste_events":5},"recommendations":[{"sku":"YOG-NAT","location":"Local Temuco","name":"Yogur natural 125 g","unit":"un","daily_demand":24.693,"daily_sigma":3.215,"coverage":1.0,"confidence":"alta","method":"media_ponderada","current_stock":175.0,"usable_at_delivery":125.61,"horizon_days":9,"service_level":"95","safety_stock":15.87,"recommended_order":113,"decision_status":"sugerencia","reason":"Demanda estimada 24.69/día × 9 días, stock utilizable 125.61, seguridad 15.87. No automatizar sin revisión.","scenarios":[{"order":0,"expected_sales":125.61,"estimated_waste_units":0.0,"estimated_waste_cost":0,"unmet_demand":96.62,"carrying_cost_proxy":0,"capital_in_remaining_stock":0,"contribution_proxy":46477,"end_stock":0.0},{"order":113,"expected_sales":222.24,"estimated_waste_units":0.0,"estimated_waste_cost":0,"unmet_demand":0.0,"carrying_cost_proxy":91,"capital_in_remaining_stock":10154,"contribution_proxy":82136,"end_stock":16.38},{"order":136,"expected_sales":222.24,"estimated_waste_units":0.0,"estimated_waste_cost":0,"unmet_demand":0.0,"carrying_cost_proxy":220,"capital_in_remaining_stock":24414,"contribution_proxy":82008,"end_stock":39.38}],"highest_contribution_scenario":{"order":113,"expected_sales":222.24,"estimated_waste_units":0.0,"estimated_waste_cost":0,"unmet_demand":0.0,"carrying_cost_proxy":91,"capital_in_remaining_stock":10154,"contribution_proxy":82136,"end_stock":16.38},"unit_cost":620.0,"unit_price":990.0},{"sku":"TOM-ROJ","location":"Local Temuco","name":"Tomates frescos","unit":"kg","daily_demand":18.246,"daily_sigma":2.379,"coverage":1.0,"confidence":"alta","method":"media_ponderada","current_stock":128.0,"usable_at_delivery":91.51,"horizon_days":9,"service_level":"95","safety_stock":11.74,"recommended_order":67,"decision_status":"sugerencia","reason":"Demanda estimada 18.25/día × 9 días, stock utilizable 91.51, seguridad 11.74. No automatizar sin revisión.","scenarios":[{"order":0,"expected_sales":91.51,"estimated_waste_units":0.0,"estimated_waste_cost":0,"unmet_demand":72.71,"carrying_cost_proxy":0,"capital_in_remaining_stock":0,"contribution_proxy":54905,"end_stock":0.0},{"order":67,"expected_sales":158.51,"estimated_waste_units":0.0,"estimated_waste_cost":0,"unmet_demand":5.71,"carrying_cost_proxy":0,"capital_in_remaining_stock":0,"contribution_proxy":95105,"end_stock":0.0},{"order":102,"expected_sales":164.21,"estimated_waste_units":29.29,"estimated_waste_cost":24900,"unmet_demand":0.0,"carrying_cost_proxy":0,"capital_in_remaining_stock":24900,"contribution_proxy":73628,"end_stock":29.29}],"highest_contribution_scenario":{"order":67,"expected_sales":158.51,"estimated_waste_units":0.0,"estimated_waste_cost":0,"unmet_demand":5.71,"carrying_cost_proxy":0,"capital_in_remaining_stock":0,"contribution_proxy":95105,"end_stock":0.0},"unit_cost":850.0,"unit_price":1450.0},{"sku":"PAN-MAR","location":"Local Padre Las Casas","name":"Pan de molde","unit":"un","daily_demand":8.577,"daily_sigma":1.002,"coverage":1.0,"confidence":"alta","method":"media_ponderada","current_stock":90.0,"usable_at_delivery":72.85,"horizon_days":9,"service_level":"95","safety_stock":4.94,"recommended_order":10,"decision_status":"sugerencia","reason":"Demanda estimada 8.58/día × 9 días, stock utilizable 72.85, seguridad 4.94. No automatizar sin revisión.","scenarios":[{"order":0,"expected_sales":72.85,"estimated_waste_units":0.0,"estimated_waste_cost":0,"unmet_demand":4.35,"carrying_cost_proxy":0,"capital_in_remaining_stock":0,"contribution_proxy":58277,"end_stock":0.0},{"order":10,"expected_sales":77.19,"estimated_waste_units":0.0,"estimated_waste_cost":0,"unmet_demand":0.0,"carrying_cost_proxy":46,"capital_in_remaining_stock":5088,"contribution_proxy":61709,"end_stock":5.65},{"order":12,"expected_sales":77.19,"estimated_waste_units":0.0,"estimated_waste_cost":0,"unmet_demand":0.0,"carrying_cost_proxy":62,"capital_in_remaining_stock":6888,"contribution_proxy":61692,"end_stock":7.65}],"highest_contribution_scenario":{"order":10,"expected_sales":77.19,"estimated_waste_units":0.0,"estimated_waste_cost":0,"unmet_demand":0.0,"carrying_cost_proxy":46,"capital_in_remaining_stock":5088,"contribution_proxy":61709,"end_stock":5.65},"unit_cost":900.0,"unit_price":1700.0},{"sku":"FRU-ROJ","location":"Local Padre Las Casas","name":"Frutillas frescas","unit":"kg","daily_demand":7.552,"daily_sigma":0.987,"coverage":1.0,"confidence":"alta","method":"media_ponderada","current_stock":52.0,"usable_at_delivery":36.9,"horizon_days":9,"service_level":"95","safety_stock":4.87,"recommended_order":6,"decision_status":"sugerencia","reason":"Demanda estimada 7.55/día × 9 días, stock utilizable 36.90, seguridad 4.87. No automatizar sin revisión.","scenarios":[{"order":0,"expected_sales":36.9,"estimated_waste_units":0.0,"estimated_waste_cost":0,"unmet_demand":31.07,"carrying_cost_proxy":0,"capital_in_remaining_stock":0,"contribution_proxy":51654,"end_stock":0.0},{"order":6,"expected_sales":42.9,"estimated_waste_units":0.0,"estimated_waste_cost":0,"unmet_demand":25.07,"carrying_cost_proxy":0,"capital_in_remaining_stock":0,"contribution_proxy":60054,"end_stock":0.0},{"order":43,"expected_sales":67.97,"estimated_waste_units":11.93,"estimated_waste_cost":17892,"unmet_demand":0.0,"carrying_cost_proxy":0,"capital_in_remaining_stock":17892,"contribution_proxy":77263,"end_stock":11.93}],"highest_contribution_scenario":{"order":43,"expected_sales":67.97,"estimated_waste_units":11.93,"estimated_waste_cost":17892,"unmet_demand":0.0,"carrying_cost_proxy":0,"capital_in_remaining_stock":17892,"contribution_proxy":77263,"end_stock":11.93},"unit_cost":1500.0,"unit_price":2900.0},{"sku":"CER-AV","location":"Local Temuco","name":"Avena envasada","unit":"un","daily_demand":3.223,"daily_sigma":0.488,"coverage":1.0,"confidence":"alta","method":"media_ponderada","current_stock":95.0,"usable_at_delivery":88.55,"horizon_days":9,"service_level":"95","safety_stock":2.41,"recommended_order":0,"decision_status":"sugerencia","reason":"Demanda estimada 3.22/día × 9 días, stock utilizable 88.55, seguridad 2.41. No automatizar sin revisión.","scenarios":[{"order":0,"expected_sales":29.01,"estimated_waste_units":0.0,"estimated_waste_cost":0,"unmet_demand":0.0,"carrying_cost_proxy":804,"capital_in_remaining_stock":89320,"contribution_proxy":22402,"end_stock":59.55}],"highest_contribution_scenario":{"order":0,"expected_sales":29.01,"estimated_waste_units":0.0,"estimated_waste_cost":0,"unmet_demand":0.0,"carrying_cost_proxy":804,"capital_in_remaining_stock":89320,"contribution_proxy":22402,"end_stock":59.55},"unit_cost":1500.0,"unit_price":2300.0}],"risks":[{"code":"DEMO-002","sku":"TOM-ROJ","name":"Tomates frescos","location":"Local Temuco","days_to_expiry":3,"quantity":128.0,"potential_excess":73.26,"cost_exposure":62273,"priority":"alta","reason":"Stock potencial no vendido antes del vencimiento con el ritmo observado o manual."},{"code":"DEMO-004","sku":"FRU-ROJ","name":"Frutillas frescas","location":"Local Padre Las Casas","days_to_expiry":2,"quantity":52.0,"potential_excess":36.9,"cost_exposure":55344,"priority":"alta","reason":"Stock potencial no vendido antes del vencimiento con el ritmo observado o manual."},{"code":"DEMO-001","sku":"YOG-NAT","name":"Yogur natural 125 g","location":"Local Temuco","days_to_expiry":4,"quantity":175.0,"potential_excess":76.23,"cost_exposure":47261,"priority":"media","reason":"Stock potencial no vendido antes del vencimiento con el ritmo observado o manual."},{"code":"DEMO-003","sku":"PAN-MAR","name":"Pan de molde","location":"Local Padre Las Casas","days_to_expiry":7,"quantity":90.0,"potential_excess":29.96,"cost_exposure":26965,"priority":"media","reason":"Stock potencial no vendido antes del vencimiento con el ritmo observado o manual."}],"data_gaps":[],"disclaimer":"Cálculo exploratorio, NO IA entrenada ni probabilidad calibrada. Exposición potencial no equivale a merma observada ni ahorro conseguido. Revisar inocuidad y obligaciones legales antes de redistribuir o descontar."}};</script><script>
+window.fetch=async function(input, options){
+ const url=String(input);
+ const data=window.__PREDICE_SNAPSHOT;
+ if(url==='/api/data'||url==='/api/reset')return new Response(JSON.stringify(data),{status:200,headers:{'Content-Type':'application/json'}});
+ return new Response(JSON.stringify({error:'Acción disponible al ejecutar el MVP local. Esta página solo es una vista previa visual.'}),{status:400,headers:{'Content-Type':'application/json'}});
+};
+</script><script>/* Predice-IA: estadística descriptiva para analítica visual.
+   No modifica el motor de predicciones ni afirma precisión/ahorros. */
+(function(root,factory){
+  const api=factory();
+  if(typeof module==='object'&&module.exports)module.exports=api;
+  if(root)root.PrediceAdvancedAnalytics=api;
+})(typeof globalThis!=='undefined'?globalThis:this,function(){
+  'use strict';
+  const iso=/^\d{4}-\d{2}-\d{2}$/;
+  const n=value=>{const x=Number(value);return Number.isFinite(x)&&x>=0?x:0};
+  const addDays=(date,days)=>{const d=new Date(date+'T00:00:00Z');if(!Number.isFinite(d.valueOf()))throw Error('Fecha inválida');d.setUTCDate(d.getUTCDate()+days);return d.toISOString().slice(0,10)};
+  const groupKey=(sku,location)=>String(sku)+'\u0000'+String(location);
+  const pct=(part,whole)=>whole>0?Math.round(part/whole*1000)/10:null;
+  function analyze(snapshot,{days=28,location='all'}={}){
+    if(![7,28,56].includes(Number(days)))throw Error('Periodo inválido');
+    const span=Number(days);
+    if(!snapshot||!snapshot.datasets||!snapshot.analysis||!iso.test(snapshot.analysis.as_of||''))throw Error('Datos insuficientes para el análisis');
+    const {lots=[],sales=[],waste=[]}=snapshot.datasets;
+    const {risks=[],recommendations=[]}=snapshot.analysis;
+    const asOf=snapshot.analysis.as_of;
+    const start=addDays(asOf,1-span);
+    const locations=[...new Set([...lots,...sales,...waste].map(r=>r.location).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
+    if(location!=='all'&&!locations.includes(location))location='all';
+    const matches=r=>location==='all'||r.location===location;
+    const windowDate=(d)=>typeof d==='string'&&iso.test(d)&&d>=start&&d<=asOf;
+    const inPeriod=(rows,key)=>rows.filter(r=>matches(r)&&windowDate(r[key]));
+    const currentLots=lots.filter(matches),currentRisks=risks.filter(matches),currentRecommendations=recommendations.filter(matches);
+    const datedWaste=inPeriod(waste,'occurred_on'),datedSales=inPeriod(sales,'sold_on');
+    const byProduct=new Map();
+    const categoryByProduct=new Map();
+    for(const lot of currentLots){
+      const k=groupKey(lot.sku,lot.location);
+      categoryByProduct.set(k,lot.category||'Sin categoría');
+      if(!byProduct.has(k))byProduct.set(k,lot.name||lot.sku);
+    }
+    const buckets=Array.from({length:span/7},(_,i)=>({
+      index:i,from:addDays(start,7*i),to:addDays(start,7*i+6),
+      wasteCost:0,salesValue:0,salesUnits:0,missingSalesPrice:0,wasteEvents:0,salesRows:0
+    }));
+    const bucketOf=date=>Math.floor((new Date(date+'T00:00:00Z')-new Date(start+'T00:00:00Z'))/86400000/7);
+    const categoryMap=new Map();
+    const ensureCategory=cat=>{if(!categoryMap.has(cat))categoryMap.set(cat,{name:cat,inventory:0,exposure:0,observedWaste:0,recordedSales:0});return categoryMap.get(cat)};
+    for(const lot of currentLots){ensureCategory(lot.category||'Sin categoría').inventory+=n(lot.quantity)*n(lot.unit_cost)}
+    for(const risk of currentRisks){const cat=categoryByProduct.get(groupKey(risk.sku,risk.location))||'Sin categoría';ensureCategory(cat).exposure+=n(risk.cost_exposure)}
+    let wasteCost=0,positiveSalesValue=0,missingSalesPrice=0,totalSalesRows=datedSales.length;
+    for(const w of datedWaste){
+      const value=n(w.quantity)*n(w.unit_cost);wasteCost+=value;
+      ensureCategory(categoryByProduct.get(groupKey(w.sku,w.location))||'Sin categoría').observedWaste+=value;
+      const b=buckets[bucketOf(w.occurred_on)];if(b){b.wasteCost+=value;b.wasteEvents++}
+    }
+    for(const s of datedSales){
+      const price=n(s.unit_price);const value=n(s.quantity)*price;
+      if(price<=0)missingSalesPrice++;else positiveSalesValue+=value;
+      ensureCategory(categoryByProduct.get(groupKey(s.sku,s.location))||'Sin categoría').recordedSales+=value;
+      const b=buckets[bucketOf(s.sold_on)];if(b){b.salesValue+=value;b.salesUnits+=n(s.quantity);b.salesRows++;if(price<=0)b.missingSalesPrice++}
+    }
+    const riskByProduct=new Map();
+    for(const r of currentRisks){
+      const k=groupKey(r.sku,r.location);
+      if(!riskByProduct.has(k))riskByProduct.set(k,{sku:r.sku,location:r.location,name:r.name||byProduct.get(k)||r.sku,exposure:0,lots:0});
+      const item=riskByProduct.get(k);item.exposure+=n(r.cost_exposure);item.lots++;
+    }
+    const pareto=[...riskByProduct.values()].sort((a,b)=>b.exposure-a.exposure||a.sku.localeCompare(b.sku));
+    const totalExposure=pareto.reduce((sum,r)=>sum+r.exposure,0);
+    let cumulative=0;for(const r of pareto){cumulative+=r.exposure;r.share=pct(r.exposure,totalExposure);r.cumulative=pct(cumulative,totalExposure)}
+    const demand=currentRecommendations.map(r=>({
+      sku:r.sku,location:r.location,name:r.name,daily:n(r.daily_demand),
+      volatility:n(r.daily_demand)>0?pct(n(r.daily_sigma),n(r.daily_demand)):null,
+      coverage:pct(n(r.coverage),1),confidence:r.confidence||'baja',
+      recommendedOrder:n(r.recommended_order),decisionStatus:r.decision_status
+    })).sort((a,b)=>(b.volatility??-1)-(a.volatility??-1));
+    const averageCoverage=demand.length?demand.reduce((s,r)=>s+n(r.coverage),0)/demand.length:null;
+    const lowData=demand.filter(r=>r.confidence==='baja').length;
+    return {
+      location,locations,days:span,from:start,to:asOf,
+      metrics:{observedWaste:wasteCost,recordedSales:missingSalesPrice?null:positiveSalesValue,
+        partiallyPricedSales:positiveSalesValue,missingSalesPrice,salesRows:totalSalesRows,
+        riskExposure:totalExposure,atRiskLots:currentRisks.length,
+        riskTopThreeShare:pct(pareto.slice(0,3).reduce((s,r)=>s+r.exposure,0),totalExposure),
+        averageCoverage,lowData,recommendationCount:demand.length},
+      buckets,pareto,demand,
+      categories:[...categoryMap.values()].sort((a,b)=>b.exposure-a.exposure||b.observedWaste-a.observedWaste),
+      notes:[
+        'Merma observada: eventos registrados al costo en el periodo seleccionado.',
+        'Exposición estimada: cálculo actual del motor para lotes en riesgo, independiente del periodo.',
+        'Ventas registradas: ingresos brutos de registros con precio válido; los días ausentes no se asumen sin ventas.',
+        'Variabilidad: desviación diaria estimada dividida por demanda media, no es precisión del pronóstico.',
+        'No se calculan ahorros logrados ni probabilidades calibradas.'
+      ]
+    };
+  }
+  return Object.freeze({analyze,addDays,pct});
+});
+</script>
+<script>/* Predice-IA: vista y filtros de analítica avanzada, con datos de /api/data. */
+(function(){
+ 'use strict';
+ const analytics=window.PrediceAdvancedAnalytics;
+ const $=id=>document.getElementById(id);
+ const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&quot;'}[c]));
+ const clp=value=>new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(value||0);
+ const num=value=>new Intl.NumberFormat('es-CL',{maximumFractionDigits:1}).format(value||0);
+ const fmtPct=value=>value===null?'Sin datos':num(value)+' %';
+ let snapshot=null,current=null;
+ function setText(id,text){$(id).textContent=text}
+ function labelDate(date){const [y,m,d]=date.split('-');return d+'/'+m+'/'+y.slice(-2)}
+ function trendSvg(buckets,key,label,stroke){
+  if(!buckets.length)return '<p class="analytics-empty">No hay periodos para graficar.</p>';
+  const values=buckets.map(x=>x[key]),max=Math.max(1,...values),width=600,height=170,top=22,bottom=131,left=26,right=574;
+  const points=values.map((v,i)=>({x:values.length===1?300:left+(right-left)*i/(values.length-1),y:bottom-(v/max)*(bottom-top),v}));
+  const poly=points.map(p=>p.x+','+p.y).join(' '),baseline=bottom;
+  const fillPath=points.length>1?'<polygon fill="'+stroke+'" opacity=".10" points="'+left+','+baseline+' '+poly+' '+right+','+baseline+'"/>':'';
+  return '<svg class="analytics-chart" viewBox="0 0 600 170" role="img" aria-label="'+esc(label)+': '+esc(values.map((v,i)=>labelDate(buckets[i].from)+' '+clp(v)).join('; '))+'">'+
+    '<line x1="'+left+'" y1="'+baseline+'" x2="'+right+'" y2="'+baseline+'" stroke="#7283a4" stroke-width="1"/>'+fillPath+
+    (points.length>1?'<polyline points="'+poly+'" fill="none" stroke="'+stroke+'" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>':'')+
+    points.map(p=>'<circle cx="'+p.x+'" cy="'+p.y+'" r="5" stroke="#1b263a" stroke-width="2" fill="'+stroke+'"><title>'+esc(clp(p.v))+'</title></circle>').join('')+
+    points.map((p,i)=>'<text x="'+p.x+'" y="156" fill="#b5c5df" text-anchor="middle" font-size="10">'+esc(buckets[i].from.slice(5))+'</text>').join('')+
+    '<text x="'+left+'" y="16" fill="#dce5f5" font-size="11">Máx. '+esc(clp(max))+'</text></svg>';
+ }
+ function renderAdvanced(){
+   if(!snapshot)return;
+   try{current=analytics.analyze(snapshot,{days:Number($('advanced-period').value),location:$('advanced-location').value})}
+   catch(err){setText('advanced-error','No se pudo preparar el análisis: '+err.message);return}
+   setText('advanced-error','');
+   const a=current,m=a.metrics;
+   setText('advanced-scope','Periodo: '+labelDate(a.from)+' a '+labelDate(a.to)+' · '+(a.location==='all'?'Todos los locales':a.location));
+   $('advanced-kpis').innerHTML=[
+     ['Merma observada',clp(m.observedWaste),'Costo registrado en '+a.days+' días'],
+     ['Exposición potencial',clp(m.riskExposure),'Estimación actual; no es merma realizada'],
+     ['Ventas valorizadas',m.recordedSales===null?'Parcial':clp(m.recordedSales),m.missingSalesPrice?'Faltan precios en '+m.missingSalesPrice+' fila(s); monto parcial '+clp(m.partiallyPricedSales):'Ingresos brutos de ventas registradas'],
+     ['Cobertura del historial',fmtPct(m.averageCoverage),'Promedio simple de SKU/local; no es precisión de IA']
+   ].map(([title,value,desc])=>'<div class="analytics-kpi"><span>'+esc(title)+'</span><strong>'+esc(value)+'</strong><small>'+esc(desc)+'</small></div>').join('');
+   $('advanced-waste-trend').innerHTML=trendSvg(a.buckets,'wasteCost','Merma observada al costo', '#fda4af');
+   $('advanced-sales-trend').innerHTML=trendSvg(a.buckets,'salesValue','Ventas registradas con precios válidos', '#a5b4fc');
+   const maxCat=Math.max(1,...a.categories.map(r=>r.exposure));
+   $('advanced-categories').innerHTML=a.categories.length?a.categories.map(r=>'<div class="analytics-category"><div class="analytics-category-header"><strong>'+esc(r.name)+'</strong><span>'+clp(r.exposure)+'</span></div><div class="analytics-track"><div style="width:'+Math.min(100,r.exposure/maxCat*100).toFixed(1)+'%"></div></div><small>Merma observada '+clp(r.observedWaste)+' · Inventario '+clp(r.inventory)+'</small></div>').join(''):'<p class="analytics-empty">No hay categorías para esta ubicación.</p>';
+   const top=a.pareto.slice(0,8),maxRisk=Math.max(1,...top.map(r=>r.exposure));
+   $('advanced-pareto').innerHTML=top.length?top.map(r=>'<div class="analytics-pareto-row"><div><strong>'+esc(r.name)+'</strong><small>'+esc(r.location)+' · '+esc(r.sku)+'</small></div><div class="analytics-pareto-bar"><i style="width:'+(r.exposure/maxRisk*100).toFixed(1)+'%"></i></div><div class="analytics-pareto-values">'+clp(r.exposure)+'<small>Acumulado '+fmtPct(r.cumulative)+'</small></div></div>').join(''):'<p class="analytics-empty">Sin exposición estimada para este filtro.</p>';
+   const unstable=a.demand.filter(r=>r.confidence==='baja').length;
+   setText('advanced-quality-note',a.demand.length?'SKU/local con datos insuficientes: '+unstable+' de '+a.demand.length+'. La variabilidad no equivale a la precisión del modelo.':'No hay productos con recomendación para este filtro.');
+   $('advanced-demand').innerHTML=a.demand.length?a.demand.map(r=>'<tr><td><strong>'+esc(r.name)+'</strong><small>'+esc(r.location)+'</small></td><td>'+num(r.daily)+'</td><td>'+fmtPct(r.volatility)+'</td><td>'+fmtPct(r.coverage)+'</td><td><span class="pill '+(r.confidence==='baja'?'pending':'suggest')+'">'+esc(r.confidence)+'</span></td></tr>').join(''):'<tr><td colspan="5">No existen datos de demanda para este local.</td></tr>';
+   const warnings=[];
+   if(m.missingSalesPrice)warnings.push('Hay '+m.missingSalesPrice+' registros de venta sin precio positivo: el ingreso total no se considera completo.');
+   if(!m.salesRows)warnings.push('No hay ventas registradas en el periodo; la falta de registros no equivale a ventas cero.');
+   if(!m.riskExposure)warnings.push('No se observa exposición potencial según las reglas y datos actuales.');
+   if(m.lowData)warnings.push(m.lowData+' combinaciones SKU/local requieren revisión humana por cobertura insuficiente.');
+   warnings.push('La exposición potencial es un resultado vigente y no cambia al filtrar fechas históricas.');
+   warnings.push('Esta sección es análisis descriptivo, no un modelo predictivo nuevo ni ahorro comprobado.');
+   $('advanced-insights').innerHTML=warnings.map(t=>'<li>'+esc(t)+'</li>').join('');
+ }
+ function csvCell(value){let s=String(value??'');if(/^[\s]*[=+\-@\t\r]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"'}
+ function csvLine(fields){return fields.map(csvCell).join(',')}
+ function exportCsv(){
+   if(!current)return;
+   const a=current;
+   const rows=[['Predice-IA · analítica descriptiva'],['Ubicación',a.location],['Desde',a.from],['Hasta',a.to],
+     ['Advertencia','Exposición estimada: foto actual del inventario, independiente del filtro temporal'],[],
+     ['Categoría','Inventario CLP','Exposición estimada CLP','Merma observada CLP']];
+   for(const c of a.categories)rows.push([c.name,Math.round(c.inventory),Math.round(c.exposure),Math.round(c.observedWaste)]);
+   rows.push([],['SKU','Ubicación','Producto','Exposición estimada CLP','Porcentaje acumulado']);
+   for(const r of a.pareto)rows.push([r.sku,r.location,r.name,Math.round(r.exposure),r.cumulative??'']);
+   rows.push([],['Semana desde','Semana hasta','Merma observada CLP','Ventas con precio CLP','Registros sin precio']);
+   for(const b of a.buckets)rows.push([b.from,b.to,Math.round(b.wasteCost),Math.round(b.salesValue),b.missingSalesPrice]);
+   const blob=new Blob(['\ufeff'+rows.map(csvLine).join('\r\n')],{type:'text/csv;charset=utf-8'});
+   const url=URL.createObjectURL(blob),link=document.createElement('a');
+   link.href=url;link.download='predice-analitica-'+a.from+'-'+a.to+'.csv';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ }
+ function init(){
+   if(!$('advanced'))return;
+   $('advanced-period').addEventListener('change',renderAdvanced);
+   $('advanced-location').addEventListener('change',renderAdvanced);
+   $('advanced-export').addEventListener('click',exportCsv);
+ }
+ window.PrediceAdvancedUI={render(data){
+   snapshot=data;
+   if(!$('advanced'))return;
+   const selector=$('advanced-location'),previous=selector.value;
+   const locations=[...new Set([...(data.datasets.lots||[]),...(data.datasets.sales||[]),...(data.datasets.waste||[])].map(r=>r.location).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
+   selector.replaceChildren(new Option('Todos los locales','all'),...locations.map(s=>new Option(s,s)));
+   selector.value=locations.includes(previous)?previous:'all';
+   renderAdvanced();
+ }};
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
+<script>(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const money=n=>new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(n||0);
+const num=n=>new Intl.NumberFormat('es-CL',{maximumFractionDigits:1}).format(n||0);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let state=null,selected=null;
+function notice(message,error=false){$('alert').textContent=message;$('alert').classList.toggle('error',error)}
+async function api(url,body){
+ const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),12000);
+ try{const res=await fetch(url,{method:body===undefined?'GET':'POST',headers:body===undefined?{}:{'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),signal:controller.signal});
+ const data=await res.json();if(!res.ok)throw Error(data.error||'Error del servidor');return data;
+ }finally{clearTimeout(timeout)}
+}
+function render(data){
+ state=data;const a=data.analysis,k=a.kpis;
+ $('kpis').innerHTML=[
+  ['Inventario valorizado',money(k.inventory_value),'Valor al costo de los lotes registrados'],
+  ['Exposición estimada',money(k.exposure),'No equivale a pérdida realizada'],
+  ['Merma observada',money(k.observed_waste_cost),'Registros históricos confirmados'],
+  ['Lotes con riesgo',num(k.at_risk_lots),'Requieren revisión antes del vencimiento']]
+  .map(([title,value,note])=>'<div class="metric"><div class="name">'+esc(title)+'</div><div class="value">'+esc(value)+'</div><div class="note">'+esc(note)+'</div></div>').join('');
+ const risks=a.risks.slice(0,5),max=Math.max(...risks.map(x=>x.cost_exposure),1);
+ $('risk-bars').innerHTML=risks.length?risks.map(x=>'<div class="bar-item"><div class="bar-label"><span>'+esc(x.name)+'</span><b>'+money(x.cost_exposure)+'</b></div><div class="bar-track"><div class="bar-fill" style="width:'+Math.min(100,Math.round(x.cost_exposure/max*100))+'%"></div></div></div>').join(''):'<p class="muted">No se detectaron excedentes potenciales en los lotes informados.</p>';
+ const focus=a.recommendations.find(x=>x.recommended_order>0)||a.recommendations[0];
+ $('featured').innerHTML=focus?'<div class="featured"><span class="pill '+(focus.confidence==='baja'?'pending':'suggest')+'">'+(focus.confidence==='baja'?'Revisar manualmente':'Sugerencia explicable')+'</span><h3>'+esc(focus.name)+'</h3><div class="big">'+num(focus.recommended_order)+' <small>'+esc(focus.unit)+'</small></div><p>'+esc(focus.reason)+'</p><div class="facts"><div>Datos diarios<b>'+focus.coverage*100+' %</b></div><div>Cobertura<b>'+esc(focus.confidence)+'</b></div></div><button class="table-action" data-sku="'+esc(focus.sku)+'" data-location="'+esc(focus.location)+'">Comparar escenarios</button></div>':'<p class="muted">Importa lotes para comenzar.</p>';
+ $('recommendations-body').innerHTML=a.recommendations.length?a.recommendations.map(x=>'<tr><td><strong>'+esc(x.name)+'</strong><small>'+esc(x.sku)+' · '+esc(x.location)+'</small></td><td>'+num(x.daily_demand)+'</td><td>'+num(x.usable_at_delivery)+'</td><td><strong>'+num(x.recommended_order)+' '+esc(x.unit)+'</strong></td><td><span class="pill '+(x.confidence==='baja'?'pending':'suggest')+'">'+esc(x.confidence)+'</span></td><td><button class="table-action" data-sku="'+esc(x.sku)+'" data-location="'+esc(x.location)+'">Simular</button></td></tr>').join(''):'<tr><td colspan="6">Importa lotes e historial para obtener sugerencias.</td></tr>';
+ $('risks-body').innerHTML=a.risks.length?a.risks.map(x=>'<tr><td><strong>'+esc(x.name)+'</strong><small>'+esc(x.code)+' · '+esc(x.location)+'</small></td><td>'+num(x.days_to_expiry)+' días</td><td>'+num(x.potential_excess)+'</td><td><b>'+money(x.cost_exposure)+'</b></td><td><span class="pill '+(x.priority==='alta'?'urgent':'low')+'">'+esc(x.priority)+'</span></td></tr>').join(''):'<tr><td colspan="5">Sin riesgos estimados con los datos actuales.</td></tr>';
+ $('quality').innerHTML='<div class="section-header"><div><span class="eyebrow">TRAZABILIDAD</span><h2>Calidad y cobertura de los datos</h2></div></div><div class="quality-grid"><div>Lotes registrados<strong>'+data.datasets.lots.length+'</strong></div><div>Filas de ventas<strong>'+data.datasets.sales.length+'</strong></div><div>Eventos de merma<strong>'+data.datasets.waste.length+'</strong></div></div><p class="quality-note">'+esc(a.disclaimer)+'</p>'+(a.data_gaps.length?'<p class="quality-note">Atención: '+a.data_gaps.length+' combinaciones SKU/local sin historial suficiente; se usarán tasas manuales.</p>':'');
+ if(selected){const p=a.recommendations.find(x=>x.sku===selected.sku&&x.location===selected.location);if(p)renderScenario(p)}
+ window.PrediceAdvancedUI.render(data);notice('Datos cargados · '+data.datasets.lots.length+' lotes · cálculo realizado '+a.as_of+'. Recuerda que son estimaciones.');
+}
+function renderScenario(p){selected={sku:p.sku,location:p.location};const sc=p.scenarios;
+ $('scenario-panel').innerHTML='<div class="section-header"><div><h3>'+esc(p.name)+' · '+esc(p.location)+'</h3><p class="muted">Pronóstico '+num(p.daily_demand)+' unidades/día. <strong>'+esc(p.decision_status==='revisar_manual'?'Revisión manual obligatoria':'Revisión humana recomendada')+'</strong>.</p></div></div><div class="scenario-cards">'+sc.map(x=>'<div class="scenario '+(x.order===p.highest_contribution_scenario.order?'positive':'')+'"><span class="eyebrow">COMPRA SIMULADA</span><b>'+num(x.order)+' '+esc(p.unit)+'</b><p>Ventas posibles: '+num(x.expected_sales)+'<br>Merma proyectada: '+num(x.estimated_waste_units)+'<br>Demanda no satisfecha: '+num(x.unmet_demand)+'</p><strong>Contribución orientativa: '+money(x.contribution_proxy)+'</strong><small>Sin costos fijos, impuestos ni validación de demanda</small></div>').join('')+'</div><p class="quality-note">'+esc(p.reason)+' El escenario destacado maximiza una aproximación de contribución; no es una orden de compra.</p>';
+}
+function parseCSV(raw){
+ const text=raw.replace(/^\ufeff/,'');const out=[];let row=[],cell='',inside=false;
+ for(let i=0;i<text.length;i++){const c=text[i];
+  if(c==='"'){if(inside&&text[i+1]==='"'){cell+='"';i++}else inside=!inside}
+  else if(c===','&&!inside){row.push(cell);cell=''}
+  else if((c==='\n'||c==='\r')&&!inside){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(x=>x.trim()))out.push(row);row=[];cell=''}
+  else cell+=c;
+ }
+ if(inside)throw Error('CSV: comillas sin cerrar');row.push(cell);if(row.some(x=>x.trim()))out.push(row);
+ if(out.length<2)throw Error('CSV sin registros');const names=out.shift().map(s=>s.trim());
+ if(new Set(names).size!==names.length||names.some(n=>!n))throw Error('Encabezados CSV duplicados o vacíos');
+ if(out.length>20000)throw Error('Máximo 20.000 registros');
+ return out.map((fields,i)=>{if(fields.length!==names.length)throw Error('Fila '+(i+2)+': número incorrecto de columnas');return Object.fromEntries(names.map((n,k)=>[n,fields[k].trim()]))});
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-sku]');if(!b||!state)return;const p=state.analysis.recommendations.find(x=>x.sku===b.dataset.sku&&x.location===b.dataset.location);if(!p)return;renderScenario(p);$('escenarios').scrollIntoView({behavior:'smooth',block:'start'})});
+$('settings-form').addEventListener('submit',async e=>{e.preventDefault();const form=new FormData(e.currentTarget);const settings=Object.fromEntries(form);notice('Calculando escenarios…');try{render(await api('/api/analyze',{settings}))}catch(err){notice(err.message,true)}});
+$('import-button').addEventListener('click',async()=>{const input=$('csv-file'),file=input.files?.[0];if(!file)return notice('Selecciona un archivo CSV.',true);if(file.size>4*1024*1024)return notice('Archivo supera 4 MB.',true);const kind=$('kind').value;
+ const req={lots:['code','sku','name','category','location','unit','quantity','unit_cost','unit_price','expires_on'],sales:['sku','location','sold_on','quantity'],waste:['sku','location','occurred_on','quantity','unit_cost']};
+ try{const rows=parseCSV(await file.text());const absent=req[kind].filter(k=>!Object.hasOwn(rows[0],k));if(absent.length)throw Error('Columnas faltantes: '+absent.join(', '));if(!confirm('Se reemplazarán los registros de '+kind+' con '+rows.length+' filas. ¿Continuar?'))return;notice('Validando e importando '+rows.length+' filas…');render(await api('/api/import',{kind,rows}));input.value=''}catch(err){notice(err.message,true)}
+});
+$('reset-button').addEventListener('click',async()=>{if(!confirm('¿Reemplazar todos los datos importados con los ejemplos ficticios?'))return;try{selected=null;render(await api('/api/reset',{}))}catch(err){notice(err.message,true)}});
+api('/api/data').then(render).catch(e=>notice('No se pudo conectar con el servidor local: '+e.message,true));
+})();
+</script></body>
+</html>
