@@ -1,6 +1,6 @@
 # Predice-IA — Motor de decisiones preventivas (MVP técnico v0.3)
 
-Sistema experimental de **predicción de mermas, compras inteligentes y simulación financiera**. No reemplaza el ERP: recibe lotes, ventas y eventos de merma mediante archivos CSV y los transforma en recomendaciones explicables. Conserva la terminología y el enfoque del prototipo MERMA360 IA; el **prototipo original del repositorio se conserva en `/index.html`** y no se modifica.
+Sistema experimental de **predicción de mermas, compras inteligentes y simulación financiera**. No reemplaza el ERP: recibe lotes, ventas y eventos de merma mediante archivos CSV y los transforma en recomendaciones explicables. Conserva la terminología y el enfoque del prototipo MERMA360 IA; el **prototipo original del repositorio se conserva en `/legacy/index.html`** y no se modifica.
 
 > **Estado:** implementación local funcional, con datos ficticios. No es una plataforma SaaS lista para producción: no incluye cuentas de usuarios, autorización multiempresa, backups remotos ni un modelo de aprendizaje automático entrenado. Sus recomendaciones requieren revisión humana.
 
@@ -86,7 +86,7 @@ web/app.js                Presentación, CSV, configuración, simulación
 data/                     Plantillas CSV
 tests/                    Regresiones del motor y API
 docs/                     Arquitectura y camino a SaaS
-../index.html             Prototipo original del repositorio, conservado sin cambios
+../legacy/index.html      Prototipo original del repositorio, conservado sin cambios
 .github/workflows/        CI para pruebas automáticas
 ```
 

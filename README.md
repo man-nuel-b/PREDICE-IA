@@ -33,7 +33,7 @@
 
 ## Nueva versión: motor de decisiones preventivas (15-11-2026)
 
-El desarrollo evoluciona en la carpeta **[`mvp/`](mvp/README.md)** sin eliminar ni reemplazar el prototipo original de `index.html`.
+El desarrollo evoluciona en la carpeta **[`mvp/`](mvp/README.md)** con el prototipo antiguo conservado en [`legacy/index.html`](legacy/index.html). La portada pública `index.html` muestra ahora la interfaz mejorada de demostración.
 
 Esta versión incluye pronóstico orientativo de demanda, cálculo de exposición a mermas por lote, compras recomendadas según vida útil, simulador financiero, BI, importación CSV, servidor local Python y pruebas automáticas.
 
@@ -47,3 +47,8 @@ python server.py
 Abre `http://127.0.0.1:8765/`. Para las pruebas: `python -m unittest discover -s tests -v` dentro de `mvp/`.
 
 > **No publicar `mvp/server.py` en Internet:** no tiene autenticación ni separación multiempresa. Sus cálculos son heurísticos, todavía no un modelo de IA entrenado y calibrado. Los datos de demostración son ficticios.
+
+
+## Demostración pública
+
+La página de GitHub Pages sirve la interfaz oscura de Predice-IA con Analítica Avanzada y datos ficticios desde la raíz. `index.html` y `demo/index.html` son deliberadamente idénticos para que la publicación funcione tanto desde la rama `main` como con el workflow `pages-demo.yml`. El prototipo MERMA360 anterior está archivado en `legacy/index.html`. La versión web pública no ejecuta el servidor Python, ni importa CSV ni guarda datos de usuario.
