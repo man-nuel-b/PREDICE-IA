@@ -51,6 +51,18 @@ class InterfaceContractTests(unittest.TestCase):
         self.assertIn("--light:#0f172a", self.css)
         self.assertIn("@media(max-width:450px)", self.css)
 
+    def test_advanced_analytics_interface(self):
+        parser = IdParser()
+        parser.feed(self.html)
+        expected = {"advanced", "advanced-period", "advanced-location",
+                    "advanced-export", "advanced-kpis", "advanced-waste-trend",
+                    "advanced-sales-trend", "advanced-categories", "advanced-pareto",
+                    "advanced-demand", "advanced-insights"}
+        self.assertFalse(expected - parser.ids)
+        self.assertIn('/advanced-analytics.js', self.html)
+        self.assertIn('/advanced-ui.js', self.html)
+        self.assertIn('PrediceAdvancedUI', self.js)
+
 
 if __name__ == "__main__":
     unittest.main()

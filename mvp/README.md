@@ -107,3 +107,16 @@ Se adaptó la propuesta visual proporcionada en \`predice_ia_interfaz_mejorada.z
 - **No** se incorporó la fórmula de predicción simulada por X1/X2 ni una confianza ficticia de 98,4 %, porque reemplazaría los cálculos explicables de mermas y compras.
 - Se conservan la importación CSV, recomendaciones por SKU/local, escenarios financieros y advertencias sobre límites del modelo.
 - El diseño no constituye validación de precisión predictiva ni habilitación para desplegar el servidor sin autenticación.
+
+
+## Analítica avanzada en el panel (2026-11-15)
+
+La sección **Analítica avanzada** utiliza los lotes, ventas, eventos de merma y las salidas vigentes del motor, sin cambiar `engine.py`. Proporciona:
+- Histórico semanal de **mermas observadas al costo** y ventas registradas a precio de venta, con filtros de 7, 28 y 56 días.
+- Desglose por categoría de **exposición estimada actual**, distinto de las mermas observadas; análisis Pareto de SKU/local.
+- Dispersión relativa de demanda (desviación / media), cobertura de datos, diagnóstico de registros insuficientes y filtros por local.
+- Exportación CSV local con medidas identificadas y protección ante fórmulas de planilla.
+
+**Advertencias:** El cambio de fecha afecta únicamente históricos; la exposición es una fotografía actual del inventario. Si hay ventas sin precio, el total comercial se muestra como parcial. La confianza indica cobertura de registros, **no exactitud del pronóstico**. No se calculan ahorros logrados ni probabilidades calibradas.
+
+Pruebas: `node --test tests/advanced.test.cjs`; el CI las ejecuta junto con las pruebas Python existentes.
