@@ -27,6 +27,8 @@ jobs:
       - name: Front-end syntax
         run: |
           node --check mvp/web/app.js
+          node --check mvp/web/csv-import.js
+          node --test mvp/tests/csv_import.test.cjs
           node --check mvp/web/advanced-analytics.js
           node --check mvp/web/advanced-ui.js
           node --test mvp/tests/advanced.test.cjs

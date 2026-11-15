@@ -6,7 +6,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 let state=null,selected=null;
 function notice(message,error=false){$('alert').textContent=message;$('alert').classList.toggle('error',error)}
 async function api(url,body){
- const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),12000);
+ const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),url==='/api/import'?60000:12000);
  try{const res=await fetch(url,{method:body===undefined?'GET':'POST',headers:body===undefined?{}:{'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),signal:controller.signal});
  const data=await res.json();if(!res.ok)throw Error(data.error||'Error del servidor');return data;
  }finally{clearTimeout(timeout)}
@@ -34,25 +34,39 @@ function render(data){
 function renderScenario(p){selected={sku:p.sku,location:p.location};const sc=p.scenarios;
  $('scenario-panel').innerHTML='<div class="section-header"><div><h3>'+esc(p.name)+' · '+esc(p.location)+'</h3><p class="muted">Pronóstico '+num(p.daily_demand)+' unidades/día. <strong>'+esc(p.decision_status==='revisar_manual'?'Revisión manual obligatoria':'Revisión humana recomendada')+'</strong>.</p></div></div><div class="scenario-cards">'+sc.map(x=>'<div class="scenario '+(x.order===p.highest_contribution_scenario.order?'positive':'')+'"><span class="eyebrow">COMPRA SIMULADA</span><b>'+num(x.order)+' '+esc(p.unit)+'</b><p>Ventas posibles: '+num(x.expected_sales)+'<br>Merma proyectada: '+num(x.estimated_waste_units)+'<br>Demanda no satisfecha: '+num(x.unmet_demand)+'</p><strong>Contribución orientativa: '+money(x.contribution_proxy)+'</strong><small>Sin costos fijos, impuestos ni validación de demanda</small></div>').join('')+'</div><p class="quality-note">'+esc(p.reason)+' El escenario destacado maximiza una aproximación de contribución; no es una orden de compra.</p>';
 }
-function parseCSV(raw){
- const text=raw.replace(/^\ufeff/,'');const out=[];let row=[],cell='',inside=false;
- for(let i=0;i<text.length;i++){const c=text[i];
-  if(c==='"'){if(inside&&text[i+1]==='"'){cell+='"';i++}else inside=!inside}
-  else if(c===','&&!inside){row.push(cell);cell=''}
-  else if((c==='\n'||c==='\r')&&!inside){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(x=>x.trim()))out.push(row);row=[];cell=''}
-  else cell+=c;
- }
- if(inside)throw Error('CSV: comillas sin cerrar');row.push(cell);if(row.some(x=>x.trim()))out.push(row);
- if(out.length<2)throw Error('CSV sin registros');const names=out.shift().map(s=>s.trim());
- if(new Set(names).size!==names.length||names.some(n=>!n))throw Error('Encabezados CSV duplicados o vacíos');
- if(out.length>20000)throw Error('Máximo 20.000 registros');
- return out.map((fields,i)=>{if(fields.length!==names.length)throw Error('Fila '+(i+2)+': número incorrecto de columnas');return Object.fromEntries(names.map((n,k)=>[n,fields[k].trim()]))});
-}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-sku]');if(!b||!state)return;const p=state.analysis.recommendations.find(x=>x.sku===b.dataset.sku&&x.location===b.dataset.location);if(!p)return;renderScenario(p);$('escenarios').scrollIntoView({behavior:'smooth',block:'start'})});
 $('settings-form').addEventListener('submit',async e=>{e.preventDefault();const form=new FormData(e.currentTarget);const settings=Object.fromEntries(form);notice('Calculando escenarios…');try{render(await api('/api/analyze',{settings}))}catch(err){notice(err.message,true)}});
-$('import-button').addEventListener('click',async()=>{const input=$('csv-file'),file=input.files?.[0];if(!file)return notice('Selecciona un archivo CSV.',true);if(file.size>4*1024*1024)return notice('Archivo supera 4 MB.',true);const kind=$('kind').value;
- const req={lots:['code','sku','name','category','location','unit','quantity','unit_cost','unit_price','expires_on'],sales:['sku','location','sold_on','quantity'],waste:['sku','location','occurred_on','quantity','unit_cost']};
- try{const rows=parseCSV(await file.text());const absent=req[kind].filter(k=>!Object.hasOwn(rows[0],k));if(absent.length)throw Error('Columnas faltantes: '+absent.join(', '));if(!confirm('Se reemplazarán los registros de '+kind+' con '+rows.length+' filas. ¿Continuar?'))return;notice('Validando e importando '+rows.length+' filas…');render(await api('/api/import',{kind,rows}));input.value=''}catch(err){notice(err.message,true)}
+$('csv-file').addEventListener('change',()=>{
+ const file=$('csv-file').files?.[0];
+ $('csv-file-status').textContent=file?'Seleccionado: '+file.name+' · '+new Intl.NumberFormat('es-CL').format(file.size)+' bytes':'Ningún archivo seleccionado.';
+});
+$('template-button').addEventListener('click',()=>{
+ try{
+  const kind=$('kind').value,blob=new Blob([window.PrediceCSVImport.template(kind)],{type:'text/csv;charset=utf-8'});
+  const link=document.createElement('a'),url=URL.createObjectURL(blob);
+  link.href=url;link.download='predice_plantilla_'+kind+'.csv';document.body.append(link);link.click();link.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),3000);
+  notice('Plantilla preparada para descargar. Completa las filas y guarda como CSV UTF-8.');
+ }catch(err){notice(err.message,true)}
+});
+$('import-button').addEventListener('click',async()=>{
+ const input=$('csv-file'),file=input.files?.[0],button=$('import-button'),kind=$('kind').value;
+ if(!file)return notice('Selecciona un archivo CSV o descarga una plantilla.',true);
+ const originalLabel=button.textContent;
+ try{
+  button.disabled=true;button.textContent='Validando archivo...';
+  const result=await window.PrediceCSVImport.readFile(file,kind),rows=result.rows;
+  $('csv-file-status').textContent='Validado: '+rows.length+' filas · separador '+(result.separator==='\t'?'tabulación':result.separator)+' · '+result.encoding+'.';
+  const typeLabel={lots:'inventario',sales:'ventas',waste:'mermas'}[kind];
+  if(!confirm('Se reemplazarán los registros de '+typeLabel+' con '+rows.length+' filas. ¿Continuar?'))return;
+  notice('Guardando '+rows.length+' filas…');button.textContent='Importando...';
+  const response=await api('/api/import',{kind,rows});
+  render(response);input.value='';
+  $('csv-file-status').textContent='Importación completada: '+rows.length+' filas ('+file.name+').';
+  notice('Archivo cargado correctamente: '+rows.length+' filas. Los indicadores y gráficos se actualizaron.');
+ }catch(err){
+  notice('No se pudo cargar el archivo: '+(err.name==='AbortError'?'La importación tardó demasiado. Intenta un CSV más pequeño.':err.message),true);
+ }finally{button.disabled=false;button.textContent=originalLabel}
 });
 $('reset-button').addEventListener('click',async()=>{if(!confirm('¿Reemplazar todos los datos importados con los ejemplos ficticios?'))return;try{selected=null;render(await api('/api/reset',{}))}catch(err){notice(err.message,true)}});
 function syncNav(){const current=location.hash||'#panel';for(const link of document.querySelectorAll('.nav a')){const selected=link.getAttribute('href')===current;link.classList.toggle('active',selected);if(selected)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')}}

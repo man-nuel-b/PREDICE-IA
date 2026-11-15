@@ -38,7 +38,7 @@ class InterfaceContractTests(unittest.TestCase):
             with self.subTest(endpoint=endpoint):
                 self.assertIn(endpoint, self.js)
         self.assertIn("renderScenario", self.js)
-        self.assertIn("parseCSV", self.js)
+        self.assertIn("PrediceCSVImport.readFile", self.js)
 
     def test_no_fictitious_confidence_or_unconnected_prediction(self):
         self.assertNotIn("98.4% Confianza", self.html)
@@ -62,6 +62,10 @@ class InterfaceContractTests(unittest.TestCase):
         self.assertIn('/advanced-analytics.js', self.html)
         self.assertIn('/advanced-ui.js', self.html)
         self.assertIn('PrediceAdvancedUI', self.js)
+        self.assertIn('id="template-button"', self.html)
+        self.assertIn('id="csv-file-status"', self.html)
+        self.assertIn('src="/csv-import.js"', self.html)
+        self.assertIn('PrediceCSVImport.readFile', self.js)
 
 
 if __name__ == "__main__":

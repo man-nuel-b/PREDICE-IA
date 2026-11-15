@@ -4,7 +4,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#101e2b"><meta name="robots" content="noindex,nofollow">
   <title>Predice-IA | Panel de inteligencia predictiva</title>
-  <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/advanced.css"><script defer src="/advanced-analytics.js"></script><script defer src="/advanced-ui.js"></script><script defer src="/app.js"></script>
+  <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/advanced.css"><script defer src="/advanced-analytics.js"></script><script defer src="/advanced-ui.js"></script><script defer src="/csv-import.js"></script><script defer src="/app.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
@@ -81,9 +81,9 @@
         </form>
         <div class="panel form"><h3>Importar información</h3>
           <label>Archivo de datos<select id="kind"><option value="lots">Lotes e inventario</option><option value="sales">Ventas diarias</option><option value="waste">Mermas observadas</option></select></label>
-          <label>Archivo CSV (UTF-8)<input id="csv-file" type="file" accept=".csv,text/csv" aria-describedby="import-help"></label>
-          <p class="small muted" id="import-help">Máximo 20.000 registros; formatos y columnas en el README. Revisa los datos antes de importar.</p>
-          <button class="btn primary" id="import-button" type="button">Validar e importar CSV</button>
+          <label>Archivo CSV de Excel o texto<input id="csv-file" type="file" accept=".csv,text/csv,.txt,text/plain" aria-describedby="import-help csv-file-status"></label><p id="csv-file-status" class="file-status" role="status" aria-live="polite">Ningún archivo seleccionado.</p>
+          <p class="small muted" id="import-help">Acepta CSV con coma o punto y coma, encabezados en español o inglés y fechas chilenas. Máximo 20.000 filas y 4 MB. Para Excel (.xlsx), guarda primero como CSV UTF-8.</p>
+          <button class="btn outline" id="template-button" type="button">Descargar plantilla CSV</button><button class="btn primary" id="import-button" type="button">Validar e importar archivo</button>
           <button class="btn outline" id="reset-button" type="button">Restablecer datos de demostración</button>
           <p class="small muted">La información se guarda localmente en <code>.local/datasets.json</code>. No hay usuarios ni nube en este MVP.</p>
         </div>
