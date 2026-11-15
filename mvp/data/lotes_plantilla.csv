@@ -1,0 +1,2 @@
+code,sku,name,category,location,unit,quantity,unit_cost,unit_price,expires_on,manual_daily_sales,shelf_life_days
+LOT-001,MANZ-RED,Manzana roja,Frutas y verduras,Local Temuco,kg,30,900,1800,2026-11-20,4,7
