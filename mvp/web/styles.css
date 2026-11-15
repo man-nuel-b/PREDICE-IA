@@ -415,3 +415,7 @@ footer { font-size: 12px; }
   html { scroll-behavior: auto; }
   *,*::before,*::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* Nuevo importador CSV */
+.file-status{border:1px dashed #6676a2;border-radius:9px;padding:10px 12px;margin:0;color:#cbd9ef;background:#17253a;font-size:12px;overflow-wrap:anywhere;line-height:1.55}
+#template-button{width:100%}

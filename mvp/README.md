@@ -120,3 +120,10 @@ La sección **Analítica avanzada** utiliza los lotes, ventas, eventos de merma 
 **Advertencias:** El cambio de fecha afecta únicamente históricos; la exposición es una fotografía actual del inventario. Si hay ventas sin precio, el total comercial se muestra como parcial. La confianza indica cobertura de registros, **no exactitud del pronóstico**. No se calculan ahorros logrados ni probabilidades calibradas.
 
 Pruebas: `node --test tests/advanced.test.cjs`; el CI las ejecuta junto con las pruebas Python existentes.
+
+
+## Importación CSV de Excel para Chile (2026-11-15)
+
+El panel incorpora plantillas descargables de lotes, ventas y mermas. Admite CSV con coma, punto y coma o tabulaciones; encabezados en español o inglés; UTF-8/UTF-16 y Windows-1252; coma decimal y fechas DD/MM/AAAA. El servidor conserva las validaciones de datos. No acepta XLSX, XLS ni ODS: deben guardarse como CSV UTF-8 desde Excel.
+
+La vista previa HTML independiente es solo demostrativa y no puede importar datos; para cargar datos reales hay que ejecutar el servidor local (python server.py desde la carpeta mvp). El archivo CSV sigue limitado a 4 MB y 20.000 filas; el servidor admite 8 MB de cuerpo JSON para soportar la serialización.
