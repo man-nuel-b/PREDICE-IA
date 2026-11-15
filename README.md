@@ -30,3 +30,20 @@
 6. Pilotos en tres negocios de La Araucanía con medición antes/después.
 
 **Nota de continuidad:** este archivo conserva una síntesis del proyecto, pero no es una copia literal de toda la conversación de ChatGPT.
+
+## Nueva versión: motor de decisiones preventivas (15-11-2026)
+
+El desarrollo evoluciona en la carpeta **[`mvp/`](mvp/README.md)** sin eliminar ni reemplazar el prototipo original de `index.html`.
+
+Esta versión incluye pronóstico orientativo de demanda, cálculo de exposición a mermas por lote, compras recomendadas según vida útil, simulador financiero, BI, importación CSV, servidor local Python y pruebas automáticas.
+
+**Ejecutar desde el repositorio clonado:**
+
+```bash
+cd mvp
+python server.py
+```
+
+Abre `http://127.0.0.1:8765/`. Para las pruebas: `python -m unittest discover -s tests -v` dentro de `mvp/`.
+
+> **No publicar `mvp/server.py` en Internet:** no tiene autenticación ni separación multiempresa. Sus cálculos son heurísticos, todavía no un modelo de IA entrenado y calibrado. Los datos de demostración son ficticios.

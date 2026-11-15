@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101e2b"><meta name="robots" content="noindex,nofollow">
+  <title>Predice-IA | Motor de decisiones preventivas</title>
+  <link rel="stylesheet" href="/styles.css"><script defer src="/app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<div class="layout">
+  <aside class="sidebar" aria-label="Menú de Predice-IA">
+    <div class="identity"><div class="mark">P<span>·</span></div><div><strong>Predice-IA</strong><small>MERMA360 · Inteligencia BI</small></div></div>
+    <div class="side-title">MOTOR PREVENTIVO</div>
+    <nav class="nav">
+      <a href="#panel">Resumen general</a><a href="#recomendaciones">Compras inteligentes</a><a href="#riesgos">Riesgo de vencimientos</a><a href="#escenarios">Escenarios financieros</a><a href="#datos">Importar datos</a>
+    </nav>
+    <div class="sidebar-bottom"><span class="dot"></span> MVP de validación local <p>Predicción explicable y revisión humana. Sin conexión a ERP.</p></div>
+  </aside>
+  <main id="main" class="main">
+    <div class="topbar"><span class="overline">INTELIGENCIA PARA DECIDIR ANTES DE PERDER</span><span class="environment">ENTORNO LOCAL · DEMOSTRACIÓN</span></div>
+    <section class="hero" id="panel"><div><p class="eyebrow">CENTRO DE DECISIONES</p><h1>Menos pérdidas.<br><em>Mejores decisiones.</em></h1><p>Analiza tus ventas, detecta existencias en riesgo y compara alternativas antes de comprar. Los resultados se calculan con los datos disponibles.</p><div class="hero-actions"><a class="btn primary" href="#recomendaciones">Ver recomendaciones</a><a class="btn light" href="#datos">Cargar mis CSV</a></div></div><div class="hero-emblem" aria-hidden="true"><span>−</span><b>360°</b><small>DE DATOS A DECISIONES</small></div></section>
+    <div id="alert" class="alert" role="status" aria-live="polite">Conectando con el motor local…</div>
+    <section class="metrics" aria-label="Resumen de indicadores" id="kpis"></section>
+    <div class="two-panels">
+      <section class="panel"><div class="section-header"><div><span class="eyebrow">VISIÓN DE RIESGO</span><h2>Prioridad por pérdida potencial</h2></div></div><div id="risk-bars" class="bars"></div></section>
+      <section class="panel"><div class="section-header"><div><span class="eyebrow">PRÓXIMA ACCIÓN</span><h2>Recomendación destacada</h2></div></div><div id="featured"></div></section>
+    </div>
+    <section id="recomendaciones" class="section-space"><div class="section-header"><div><span class="eyebrow">MOTOR EXPLICABLE</span><h2>Compras inteligentes</h2><p>Recomendaciones sujetas a validación; nunca se ejecuta una compra automáticamente.</p></div></div><div class="panel table-container"><table><thead><tr><th>Producto · ubicación</th><th>Demanda diaria</th><th>Disponible</th><th>Comprar</th><th>Cobertura de datos</th><th>Decisión</th></tr></thead><tbody id="recommendations-body"></tbody></table></div></section>
+    <section id="riesgos" class="section-space"><div class="section-header"><div><span class="eyebrow">ANTES DEL VENCIMIENTO</span><h2>Riesgos que requieren atención</h2><p>La exposición potencial no es una pérdida contabilizada ni una probabilidad calibrada.</p></div></div><div class="panel table-container"><table><thead><tr><th>Lote / producto</th><th>Vence en</th><th>Excedente potencial</th><th>Exposición estimada</th><th>Prioridad</th></tr></thead><tbody id="risks-body"></tbody></table></div></section>
+    <section id="escenarios" class="section-space"><div class="section-header"><div><span class="eyebrow">SIMULADOR FINANCIERO</span><h2>Compara antes de actuar</h2><p>Los escenarios muestran una contribución aproximada, no utilidad contable ni ahorro garantizado.</p></div></div><div class="panel" id="scenario-panel"><p class="muted">Selecciona una recomendación para comparar escenarios.</p></div></section>
+    <section id="datos" class="section-space"><div class="section-header"><div><span class="eyebrow">SIN REEMPLAZAR TU SOFTWARE</span><h2>Datos y configuración</h2><p>Importa archivos CSV exportados desde tus registros. Cada carga reemplaza los datos del tipo seleccionado en este equipo.</p></div></div>
+      <div class="two-panels">
+        <form id="settings-form" class="panel form" autocomplete="off"><h3>Política de compras</h3>
+          <label>Plazo de entrega del proveedor (días)<input name="lead_days" type="number" min="0" max="90" step="1" value="2" required></label>
+          <label>Ciclo de revisión de compras (días)<input name="review_days" type="number" min="1" max="90" step="1" value="7" required></label>
+          <label>Nivel de servicio orientativo<select name="service"><option value="90">90 %</option><option value="95" selected>95 %</option><option value="98">98 %</option></select></label>
+          <label>Porción no recuperable del excedente vencido<select name="spoilage_factor"><option value="1">100 % (conservador)</option><option value="0.5">50 %</option><option value="0.25">25 %</option></select></label>
+          <button class="btn primary" type="submit">Recalcular decisiones</button>
+        </form>
+        <div class="panel form"><h3>Importar información</h3>
+          <label>Archivo de datos<select id="kind"><option value="lots">Lotes e inventario</option><option value="sales">Ventas diarias</option><option value="waste">Mermas observadas</option></select></label>
+          <label>Archivo CSV (UTF-8)<input id="csv-file" type="file" accept=".csv,text/csv" aria-describedby="import-help"></label>
+          <p class="small muted" id="import-help">Máximo 20.000 registros; formatos y columnas en el README. Revisa los datos antes de importar.</p>
+          <button class="btn primary" id="import-button" type="button">Validar e importar CSV</button>
+          <button class="btn outline" id="reset-button" type="button">Restablecer datos de demostración</button>
+          <p class="small muted">La información se guarda localmente en <code>.local/datasets.json</code>. No hay usuarios ni nube en este MVP.</p>
+        </div>
+      </div>
+      <div class="panel" id="quality"></div>
+    </section>
+    <footer>Predice-IA · MVP técnico · Sin ERP · Predicciones exploratorias, siempre bajo revisión humana. No usar para decisiones automáticas de inocuidad.</footer>
+  </main>
+</div>
+</body>
+</html>
