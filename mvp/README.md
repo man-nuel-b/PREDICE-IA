@@ -97,3 +97,13 @@ El MVP **no** es multiempresa. Para producción será obligatorio: autenticació
 ## Integración con GitHub
 
 Este paquete se preparó a partir de un prototipo anterior de MERMA360 IA; **no procede de una clonación de `man-nuel-b/PREDICE-IA`**, porque la integración actual no puede leer el repositorio privado. **Antes de incorporarlo al repositorio original, comparar sus archivos y evitar sobrescribir funcionalidades existentes.**
+
+
+## Actualización de interfaz: diseño oscuro adaptado (2026-11-15)
+
+Se adaptó la propuesta visual proporcionada en \`predice_ia_interfaz_mejorada.zip\` al MVP funcional:
+- Paleta oscura y acentos índigo, paneles más legibles, tabla y controles responsivos, estados de foco accesibles.
+- Navegación interna activa y estado del motor conectado al servidor local.
+- **No** se incorporó la fórmula de predicción simulada por X1/X2 ni una confianza ficticia de 98,4 %, porque reemplazaría los cálculos explicables de mermas y compras.
+- Se conservan la importación CSV, recomendaciones por SKU/local, escenarios financieros y advertencias sobre límites del modelo.
+- El diseño no constituye validación de precisión predictiva ni habilitación para desplegar el servidor sin autenticación.

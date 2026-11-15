@@ -12,6 +12,7 @@ async function api(url,body){
  }finally{clearTimeout(timeout)}
 }
 function render(data){
+ $('motor-status').textContent='Motor local disponible';$('motor-status-dot').classList.remove('offline');
  state=data;const a=data.analysis,k=a.kpis;
  $('kpis').innerHTML=[
   ['Inventario valorizado',money(k.inventory_value),'Valor al costo de los lotes registrados'],
@@ -53,5 +54,7 @@ $('import-button').addEventListener('click',async()=>{const input=$('csv-file'),
  try{const rows=parseCSV(await file.text());const absent=req[kind].filter(k=>!Object.hasOwn(rows[0],k));if(absent.length)throw Error('Columnas faltantes: '+absent.join(', '));if(!confirm('Se reemplazarán los registros de '+kind+' con '+rows.length+' filas. ¿Continuar?'))return;notice('Validando e importando '+rows.length+' filas…');render(await api('/api/import',{kind,rows}));input.value=''}catch(err){notice(err.message,true)}
 });
 $('reset-button').addEventListener('click',async()=>{if(!confirm('¿Reemplazar todos los datos importados con los ejemplos ficticios?'))return;try{selected=null;render(await api('/api/reset',{}))}catch(err){notice(err.message,true)}});
-api('/api/data').then(render).catch(e=>notice('No se pudo conectar con el servidor local: '+e.message,true));
+function syncNav(){const current=location.hash||'#panel';for(const link of document.querySelectorAll('.nav a')){const selected=link.getAttribute('href')===current;link.classList.toggle('active',selected);if(selected)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')}}
+window.addEventListener('hashchange',syncNav);syncNav();
+api('/api/data').then(render).catch(e=>{$('motor-status').textContent='Servidor local no disponible';$('motor-status-dot').classList.add('offline');notice('No se pudo conectar con el servidor local: '+e.message,true)});
 })();

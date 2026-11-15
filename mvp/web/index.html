@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#101e2b"><meta name="robots" content="noindex,nofollow">
-  <title>Predice-IA | Motor de decisiones preventivas</title>
+  <title>Predice-IA | Panel de inteligencia predictiva</title>
   <link rel="stylesheet" href="/styles.css"><script defer src="/app.js"></script>
 </head>
 <body>
@@ -15,11 +15,11 @@
     <nav class="nav">
       <a href="#panel">Resumen general</a><a href="#recomendaciones">Compras inteligentes</a><a href="#riesgos">Riesgo de vencimientos</a><a href="#escenarios">Escenarios financieros</a><a href="#datos">Importar datos</a>
     </nav>
-    <div class="sidebar-bottom"><span class="dot"></span> MVP de validación local <p>Predicción explicable y revisión humana. Sin conexión a ERP.</p></div>
+    <div class="sidebar-bottom"><span class="dot" id="motor-status-dot" aria-hidden="true"></span><span id="motor-status">Conectando al motor local</span> <p>Predicción explicable y revisión humana. Sin conexión a ERP.</p></div>
   </aside>
   <main id="main" class="main">
     <div class="topbar"><span class="overline">INTELIGENCIA PARA DECIDIR ANTES DE PERDER</span><span class="environment">ENTORNO LOCAL · DEMOSTRACIÓN</span></div>
-    <section class="hero" id="panel"><div><p class="eyebrow">CENTRO DE DECISIONES</p><h1>Menos pérdidas.<br><em>Mejores decisiones.</em></h1><p>Analiza tus ventas, detecta existencias en riesgo y compara alternativas antes de comprar. Los resultados se calculan con los datos disponibles.</p><div class="hero-actions"><a class="btn primary" href="#recomendaciones">Ver recomendaciones</a><a class="btn light" href="#datos">Cargar mis CSV</a></div></div><div class="hero-emblem" aria-hidden="true"><span>−</span><b>360°</b><small>DE DATOS A DECISIONES</small></div></section>
+    <section class="hero" id="panel"><div><p class="eyebrow">PANEL DE INTELIGENCIA PREDICTIVA</p><h1>Menos pérdidas.<br><em>Mejores decisiones.</em></h1><p>Analiza tus ventas, detecta existencias en riesgo y compara alternativas antes de comprar. Los resultados se calculan con los datos disponibles.</p><div class="hero-actions"><a class="btn primary" href="#recomendaciones">Ver recomendaciones</a><a class="btn light" href="#datos">Cargar mis CSV</a></div></div><div class="hero-emblem" aria-hidden="true"><span>−</span><b>360°</b><small>DE DATOS A DECISIONES</small></div></section>
     <div id="alert" class="alert" role="status" aria-live="polite">Conectando con el motor local…</div>
     <section class="metrics" aria-label="Resumen de indicadores" id="kpis"></section>
     <div class="two-panels">
