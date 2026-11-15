@@ -38,7 +38,7 @@ class InterfaceContractTests(unittest.TestCase):
             with self.subTest(endpoint=endpoint):
                 self.assertIn(endpoint, self.js)
         self.assertIn("renderScenario", self.js)
-        self.assertIn("parseCSV", self.js)
+        self.assertIn("PrediceCSVImport.readFile", self.js)
 
     def test_no_fictitious_confidence_or_unconnected_prediction(self):
         self.assertNotIn("98.4% Confianza", self.html)
