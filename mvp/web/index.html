@@ -4,7 +4,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#101e2b"><meta name="robots" content="noindex,nofollow">
   <title>Predice-IA | Panel de inteligencia predictiva</title>
-  <link rel="stylesheet" href="/styles.css"><script defer src="/app.js"></script>
+  <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/advanced.css"><script defer src="/advanced-analytics.js"></script><script defer src="/advanced-ui.js"></script><script defer src="/app.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
@@ -13,7 +13,7 @@
     <div class="identity"><div class="mark">P<span>·</span></div><div><strong>Predice-IA</strong><small>MERMA360 · Inteligencia BI</small></div></div>
     <div class="side-title">MOTOR PREVENTIVO</div>
     <nav class="nav">
-      <a href="#panel">Resumen general</a><a href="#recomendaciones">Compras inteligentes</a><a href="#riesgos">Riesgo de vencimientos</a><a href="#escenarios">Escenarios financieros</a><a href="#datos">Importar datos</a>
+      <a href="#panel">Resumen general</a><a href="#advanced">Analítica avanzada</a><a href="#recomendaciones">Compras inteligentes</a><a href="#riesgos">Riesgo de vencimientos</a><a href="#escenarios">Escenarios financieros</a><a href="#datos">Importar datos</a>
     </nav>
     <div class="sidebar-bottom"><span class="dot" id="motor-status-dot" aria-hidden="true"></span><span id="motor-status">Conectando al motor local</span> <p>Predicción explicable y revisión humana. Sin conexión a ERP.</p></div>
   </aside>
@@ -26,6 +26,47 @@
       <section class="panel"><div class="section-header"><div><span class="eyebrow">VISIÓN DE RIESGO</span><h2>Prioridad por pérdida potencial</h2></div></div><div id="risk-bars" class="bars"></div></section>
       <section class="panel"><div class="section-header"><div><span class="eyebrow">PRÓXIMA ACCIÓN</span><h2>Recomendación destacada</h2></div></div><div id="featured"></div></section>
     </div>
+    <section id="advanced" class="section-space analytics-section" aria-labelledby="advanced-heading">
+      <div class="section-header analytics-heading">
+        <div><span class="eyebrow">BUSINESS INTELLIGENCE · ANÁLISIS DESCRIPTIVO</span>
+          <h2 id="advanced-heading">Analítica avanzada</h2>
+          <p>Analiza mermas registradas, demanda, concentración del riesgo y cobertura de datos. Las cifras se actualizan al importar información.</p>
+        </div>
+      </div>
+      <div class="analytics-toolbar panel">
+        <label>Periodo histórico
+          <select id="advanced-period" aria-label="Periodo histórico de analítica avanzada">
+            <option value="7">Últimos 7 días</option><option value="28" selected>Últimos 28 días</option><option value="56">Últimos 56 días</option>
+          </select>
+        </label>
+        <label>Local
+          <select id="advanced-location" aria-label="Filtrar analítica por local"><option value="all">Todos los locales</option></select>
+        </label>
+        <button id="advanced-export" class="btn outline" type="button">Exportar análisis CSV</button>
+        <span id="advanced-scope" class="analytics-scope" aria-live="polite">Preparando datos…</span>
+      </div>
+      <p id="advanced-error" class="analytics-error" role="status"></p>
+      <div class="analytics-kpis" id="advanced-kpis" aria-label="Indicadores de analítica avanzada"></div>
+      <div class="analytics-grid">
+        <div class="panel analytics-panel"><span class="eyebrow">HISTÓRICO DE PÉRDIDAS</span><h3>Merma registrada por semana</h3>
+          <div id="advanced-waste-trend"></div><p class="analytics-footnote">Valores reales registrados al costo. No representan una predicción.</p>
+        </div>
+        <div class="panel analytics-panel"><span class="eyebrow">ACTIVIDAD COMERCIAL</span><h3>Ventas valorizadas por semana</h3>
+          <div id="advanced-sales-trend"></div><p class="analytics-footnote">Ingresos brutos de ventas con precio disponible; faltantes se informan.</p>
+        </div>
+        <div class="panel analytics-panel"><span class="eyebrow">SEGMENTACIÓN DE CARTERA</span><h3>Exposición estimada por categoría</h3>
+          <div id="advanced-categories"></div><p class="analytics-footnote">Foto actual del inventario y riesgo, independiente del filtro de fechas.</p>
+        </div>
+        <div class="panel analytics-panel"><span class="eyebrow">PARETO DE EXPOSICIÓN</span><h3>Productos que concentran el riesgo</h3>
+          <div id="advanced-pareto"></div><p class="analytics-footnote">Porcentaje acumulado del costo expuesto estimado, no pérdidas confirmadas.</p>
+        </div>
+      </div>
+      <div class="panel analytics-table-panel"><div class="section-header"><div><span class="eyebrow">ANÁLISIS DE COMPORTAMIENTO</span><h3>Variabilidad y calidad de la demanda</h3></div></div>
+        <div class="table-container"><table><thead><tr><th>Producto · local</th><th>Demanda diaria</th><th>Variabilidad relativa</th><th>Cobertura 28 días</th><th>Confianza en datos</th></tr></thead><tbody id="advanced-demand"></tbody></table></div>
+        <p id="advanced-quality-note" class="analytics-footnote"></p>
+      </div>
+      <div class="analytics-notes panel"><h3>Lectura responsable de los resultados</h3><ul id="advanced-insights"></ul></div>
+    </section>
     <section id="recomendaciones" class="section-space"><div class="section-header"><div><span class="eyebrow">MOTOR EXPLICABLE</span><h2>Compras inteligentes</h2><p>Recomendaciones sujetas a validación; nunca se ejecuta una compra automáticamente.</p></div></div><div class="panel table-container"><table><thead><tr><th>Producto · ubicación</th><th>Demanda diaria</th><th>Disponible</th><th>Comprar</th><th>Cobertura de datos</th><th>Decisión</th></tr></thead><tbody id="recommendations-body"></tbody></table></div></section>
     <section id="riesgos" class="section-space"><div class="section-header"><div><span class="eyebrow">ANTES DEL VENCIMIENTO</span><h2>Riesgos que requieren atención</h2><p>La exposición potencial no es una pérdida contabilizada ni una probabilidad calibrada.</p></div></div><div class="panel table-container"><table><thead><tr><th>Lote / producto</th><th>Vence en</th><th>Excedente potencial</th><th>Exposición estimada</th><th>Prioridad</th></tr></thead><tbody id="risks-body"></tbody></table></div></section>
     <section id="escenarios" class="section-space"><div class="section-header"><div><span class="eyebrow">SIMULADOR FINANCIERO</span><h2>Compara antes de actuar</h2><p>Los escenarios muestran una contribución aproximada, no utilidad contable ni ahorro garantizado.</p></div></div><div class="panel" id="scenario-panel"><p class="muted">Selecciona una recomendación para comparar escenarios.</p></div></section>
