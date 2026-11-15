@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - 'demo/**'
+      - 'index.html'
+      - 'legacy/**'
       - '.github/workflows/pages-demo.yml'
   workflow_dispatch:
 permissions:
@@ -22,6 +24,11 @@ jobs:
     steps:
       - name: Obtener archivos
         uses: actions/checkout@v4
+      - name: Verificar que se publica la interfaz mejorada
+        run: |
+          cmp index.html demo/index.html
+          grep -q 'Analítica avanzada' index.html
+          grep -q 'VISTA PREVIA ANALÍTICA' index.html
       - name: Habilitar GitHub Pages
         uses: actions/configure-pages@v5
         with:
