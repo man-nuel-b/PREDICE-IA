@@ -4,7 +4,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#101e2b"><meta name="robots" content="noindex,nofollow">
   <title>Predice-IA | Panel de inteligencia predictiva</title>
-  <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/advanced.css"><script defer src="/advanced-analytics.js"></script><script defer src="/advanced-ui.js"></script><script defer src="/csv-import.js"></script><script defer src="/app.js"></script>
+  <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/advanced.css"><script defer src="/advanced-analytics.js"></script><script defer src="/advanced-ui.js"></script><script defer src="/csv-import.js"></script><script defer src="/app.js"></script><script defer src="/decisions-ui.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
@@ -13,7 +13,7 @@
     <div class="identity"><div class="mark">P<span>·</span></div><div><strong>Predice-IA</strong><small>MERMA360 · Inteligencia BI</small></div></div>
     <div class="side-title">MOTOR PREVENTIVO</div>
     <nav class="nav">
-      <a href="#panel">Resumen general</a><a href="#advanced">Analítica avanzada</a><a href="#recomendaciones">Compras inteligentes</a><a href="#riesgos">Riesgo de vencimientos</a><a href="#escenarios">Escenarios financieros</a><a href="#datos">Importar datos</a>
+      <a href="#panel">Resumen general</a><a href="#advanced">Analítica avanzada</a><a href="#prevencion">Centro preventivo</a><a href="#recomendaciones">Compras inteligentes</a><a href="#riesgos">Riesgo de vencimientos</a><a href="#escenarios">Escenarios financieros</a><a href="#datos">Importar datos</a>
     </nav>
     <div class="sidebar-bottom"><span class="dot" id="motor-status-dot" aria-hidden="true"></span><span id="motor-status">Conectando al motor local</span> <p>Predicción explicable y revisión humana. Sin conexión a ERP.</p></div>
   </aside>
@@ -67,6 +67,7 @@
       </div>
       <div class="analytics-notes panel"><h3>Lectura responsable de los resultados</h3><ul id="advanced-insights"></ul></div>
     </section>
+    <section id="prevencion" class="section-space"><div class="section-header"><div><span class="eyebrow">NUEVO · INTELIGENCIA PREVENTIVA</span><h2>Centro de decisiones</h2><p>Evaluación histórica del pronóstico, alertas priorizadas y acciones para revisar. Sin ejecutar operaciones automáticamente.</p></div></div><div id="prevention-status" class="alert" role="status">Preparando evaluación histórica…</div><div class="analytics-kpis" id="prevention-metrics"></div><div class="panel table-container"><h3>Acciones priorizadas</h3><table><thead><tr><th>Producto y lote</th><th>Vencimiento</th><th>Exposición estimada</th><th>Acción sugerida</th></tr></thead><tbody id="prevention-actions"></tbody></table></div><div class="panel table-container" style="margin-top:16px"><h3>Calidad de pronósticos y compras</h3><table><thead><tr><th>Producto y local</th><th>Error histórico WAPE</th><th>Compra orientativa</th><th>Revisión</th></tr></thead><tbody id="prevention-orders"></tbody></table><p class="quality-note">El error histórico no equivale a precisión futura. Las ventas registradas pueden ocultar demanda por quiebres de stock. No usar para decisiones automáticas.</p></div></section>
     <section id="recomendaciones" class="section-space"><div class="section-header"><div><span class="eyebrow">MOTOR EXPLICABLE</span><h2>Compras inteligentes</h2><p>Recomendaciones sujetas a validación; nunca se ejecuta una compra automáticamente.</p></div></div><div class="panel table-container"><table><thead><tr><th>Producto · ubicación</th><th>Demanda diaria</th><th>Disponible</th><th>Comprar</th><th>Cobertura de datos</th><th>Decisión</th></tr></thead><tbody id="recommendations-body"></tbody></table></div></section>
     <section id="riesgos" class="section-space"><div class="section-header"><div><span class="eyebrow">ANTES DEL VENCIMIENTO</span><h2>Riesgos que requieren atención</h2><p>La exposición potencial no es una pérdida contabilizada ni una probabilidad calibrada.</p></div></div><div class="panel table-container"><table><thead><tr><th>Lote / producto</th><th>Vence en</th><th>Excedente potencial</th><th>Exposición estimada</th><th>Prioridad</th></tr></thead><tbody id="risks-body"></tbody></table></div></section>
     <section id="escenarios" class="section-space"><div class="section-header"><div><span class="eyebrow">SIMULADOR FINANCIERO</span><h2>Compara antes de actuar</h2><p>Los escenarios muestran una contribución aproximada, no utilidad contable ni ahorro garantizado.</p></div></div><div class="panel" id="scenario-panel"><p class="muted">Selecciona una recomendación para comparar escenarios.</p></div></section>
