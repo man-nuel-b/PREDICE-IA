@@ -28,6 +28,7 @@ function render(data){
  $('risks-body').innerHTML=a.risks.length?a.risks.map(x=>'<tr><td><strong>'+esc(x.name)+'</strong><small>'+esc(x.code)+' · '+esc(x.location)+'</small></td><td>'+num(x.days_to_expiry)+' días</td><td>'+num(x.potential_excess)+'</td><td><b>'+money(x.cost_exposure)+'</b></td><td><span class="pill '+(x.priority==='alta'?'urgent':'low')+'">'+esc(x.priority)+'</span></td></tr>').join(''):'<tr><td colspan="5">Sin riesgos estimados con los datos actuales.</td></tr>';
  $('quality').innerHTML='<div class="section-header"><div><span class="eyebrow">TRAZABILIDAD</span><h2>Calidad y cobertura de los datos</h2></div></div><div class="quality-grid"><div>Lotes registrados<strong>'+data.datasets.lots.length+'</strong></div><div>Filas de ventas<strong>'+data.datasets.sales.length+'</strong></div><div>Eventos de merma<strong>'+data.datasets.waste.length+'</strong></div></div><p class="quality-note">'+esc(a.disclaimer)+'</p>'+(a.data_gaps.length?'<p class="quality-note">Atención: '+a.data_gaps.length+' combinaciones SKU/local sin historial suficiente; se usarán tasas manuales.</p>':'');
  if(selected){const p=a.recommendations.find(x=>x.sku===selected.sku&&x.location===selected.location);if(p)renderScenario(p)}
+ document.dispatchEvent(new CustomEvent('predice:data-updated'));
  try{window.PrediceAdvancedUI?.render(data)}catch(err){console.error('No se pudo mostrar la analítica avanzada:',err)}
  notice('Datos cargados · '+data.datasets.lots.length+' lotes · cálculo realizado '+a.as_of+'. Recuerda que son estimaciones.');
 }
