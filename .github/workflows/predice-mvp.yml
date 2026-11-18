@@ -20,13 +20,14 @@ jobs:
           python-version: '3.13'
       - name: Python compile
         working-directory: mvp
-        run: python -m compileall -q engine.py demo.py server.py
+        run: python -m compileall -q engine.py demo.py server.py backtesting.py decisions.py
       - name: Engine and API regressions
         working-directory: mvp
         run: python -m unittest discover -s tests -v
       - name: Front-end syntax
         run: |
           node --check mvp/web/app.js
+          node --check mvp/web/decisions-ui.js
           node --check mvp/web/csv-import.js
           node --test mvp/tests/csv_import.test.cjs
           node --check mvp/web/advanced-analytics.js
