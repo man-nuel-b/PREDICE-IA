@@ -127,3 +127,17 @@ Pruebas: `node --test tests/advanced.test.cjs`; el CI las ejecuta junto con las 
 El panel incorpora plantillas descargables de lotes, ventas y mermas. Admite CSV con coma, punto y coma o tabulaciones; encabezados en español o inglés; UTF-8/UTF-16 y Windows-1252; coma decimal y fechas DD/MM/AAAA. El servidor conserva las validaciones de datos. No acepta XLSX, XLS ni ODS: deben guardarse como CSV UTF-8 desde Excel.
 
 La vista previa HTML independiente es solo demostrativa y no puede importar datos; para cargar datos reales hay que ejecutar el servidor local (python server.py desde la carpeta mvp). El archivo CSV sigue limitado a 4 MB y 20.000 filas; el servidor admite 8 MB de cuerpo JSON para soportar la serialización.
+
+
+## Centro preventivo experimental (2026-11-18)
+
+El nuevo módulo `decisions.py` combina el backtesting histórico (`backtesting.py`) con el motor de análisis de lotes para priorizar acciones, indicar series que requieren revisión y mostrar WAPE, MAE y sesgo de pronósticos. El servidor local expone `GET /api/decisions`, y la interfaz incorpora la sección **Centro preventivo**, que se refresca al importar datos.
+
+- Las alertas no producen acciones reales y no establecen cumplimiento de inocuidad ni recuperabilidad del producto.
+- Los descuentos son simulaciones indicativas y nunca se aplican automáticamente.
+- No se ha entrenado ni comparado un modelo ML contra el método base: la palabra IA aún describe la dirección del producto, no una capacidad validada.
+- Sin información histórica sobre disponibilidad/quiebres de stock, las ventas podrían ser inferiores a la demanda real.
+- El servidor sigue restringido a uso local sin autenticación; no está preparado para clientes multiempresa ni producción.
+- Las nuevas pruebas están en `tests/test_backtesting.py` y `tests/test_decisions.py` y se incluyen en el descubrimiento estándar de unittest.
+
+**Para probarlo:** desde `mvp`, ejecuta `python -m unittest discover -s tests -v` y luego `python server.py`. Abre `http://127.0.0.1:8765/#prevencion`.
