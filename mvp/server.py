@@ -15,6 +15,7 @@ from urllib.parse import urlsplit
 from demo import sample_data
 from engine import InputError, analyze, validate_dataset
 from decisions import prevention_report
+from insights import insight_report
 
 ROOT = Path(__file__).resolve().parent
 WEB = ROOT / 'web'
@@ -69,11 +70,12 @@ class API(BaseHTTPRequestHandler):
     def do_GET(self):
         if not self.local_request():return self.respond({'error':'Solo acceso local'},403)
         url=urlsplit(self.path).path
-        if url in ('/api/status','/api/data','/api/decisions'):
+        if url in ('/api/status','/api/data','/api/decisions','/api/insights'):
             try:
                 data=load_state()
                 if url=='/api/status':return self.respond({'ok':True,'mode':'local_mvp','today':date.today().isoformat()})
                 if url=='/api/decisions':return self.respond({'decisions':prevention_report(data)})
+                if url=='/api/insights':return self.respond({'insights':insight_report(data)})
                 return self.respond({'datasets':data,'analysis':analyze(data)})
             except (ValueError,OSError) as exc:
                 return self.respond({'error':'No se pudo cargar el estado local','detail':str(exc)},500)
