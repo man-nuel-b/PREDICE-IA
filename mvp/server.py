@@ -14,6 +14,7 @@ from urllib.parse import urlsplit
 
 from demo import sample_data
 from engine import InputError, analyze, validate_dataset
+from decisions import prevention_report
 
 ROOT = Path(__file__).resolve().parent
 WEB = ROOT / 'web'
@@ -21,7 +22,7 @@ STATE = ROOT / '.local' / 'datasets.json'
 LOCK = threading.RLock()
 MAX_BODY = 8 * 1024 * 1024
 PORT = 8765
-ASSETS = {'/':('index.html','text/html; charset=utf-8'),'/app.js':('app.js','text/javascript; charset=utf-8'),'/styles.css':('styles.css','text/css; charset=utf-8'),'/advanced.css':('advanced.css','text/css; charset=utf-8'),'/advanced-analytics.js':('advanced-analytics.js','text/javascript; charset=utf-8'),'/advanced-ui.js':('advanced-ui.js','text/javascript; charset=utf-8'),'/csv-import.js':('csv-import.js','text/javascript; charset=utf-8')}
+ASSETS = {'/':('index.html','text/html; charset=utf-8'),'/app.js':('app.js','text/javascript; charset=utf-8'),'/styles.css':('styles.css','text/css; charset=utf-8'),'/advanced.css':('advanced.css','text/css; charset=utf-8'),'/advanced-analytics.js':('advanced-analytics.js','text/javascript; charset=utf-8'),'/advanced-ui.js':('advanced-ui.js','text/javascript; charset=utf-8'),'/csv-import.js':('csv-import.js','text/javascript; charset=utf-8'),'/decisions-ui.js':('decisions-ui.js','text/javascript; charset=utf-8')}
 
 
 def load_state():
@@ -68,10 +69,11 @@ class API(BaseHTTPRequestHandler):
     def do_GET(self):
         if not self.local_request():return self.respond({'error':'Solo acceso local'},403)
         url=urlsplit(self.path).path
-        if url in ('/api/status','/api/data'):
+        if url in ('/api/status','/api/data','/api/decisions'):
             try:
                 data=load_state()
                 if url=='/api/status':return self.respond({'ok':True,'mode':'local_mvp','today':date.today().isoformat()})
+                if url=='/api/decisions':return self.respond({'decisions':prevention_report(data)})
                 return self.respond({'datasets':data,'analysis':analyze(data)})
             except (ValueError,OSError) as exc:
                 return self.respond({'error':'No se pudo cargar el estado local','detail':str(exc)},500)
