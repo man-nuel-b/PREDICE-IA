@@ -23,7 +23,7 @@ STATE = ROOT / '.local' / 'datasets.json'
 LOCK = threading.RLock()
 MAX_BODY = 8 * 1024 * 1024
 PORT = 8765
-ASSETS = {'/':('index.html','text/html; charset=utf-8'),'/app.js':('app.js','text/javascript; charset=utf-8'),'/styles.css':('styles.css','text/css; charset=utf-8'),'/advanced.css':('advanced.css','text/css; charset=utf-8'),'/advanced-analytics.js':('advanced-analytics.js','text/javascript; charset=utf-8'),'/advanced-ui.js':('advanced-ui.js','text/javascript; charset=utf-8'),'/csv-import.js':('csv-import.js','text/javascript; charset=utf-8'),'/decisions-ui.js':('decisions-ui.js','text/javascript; charset=utf-8')}
+ASSETS = {'/':('index.html','text/html; charset=utf-8'),'/app.js':('app.js','text/javascript; charset=utf-8'),'/styles.css':('styles.css','text/css; charset=utf-8'),'/advanced.css':('advanced.css','text/css; charset=utf-8'),'/advanced-analytics.js':('advanced-analytics.js','text/javascript; charset=utf-8'),'/advanced-ui.js':('advanced-ui.js','text/javascript; charset=utf-8'),'/csv-import.js':('csv-import.js','text/javascript; charset=utf-8'),'/decisions-ui.js':('decisions-ui.js','text/javascript; charset=utf-8'),'/insights-ui.js':('insights-ui.js','text/javascript; charset=utf-8')}
 
 
 def load_state():
